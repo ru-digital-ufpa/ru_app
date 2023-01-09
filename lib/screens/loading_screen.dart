@@ -14,24 +14,23 @@ class LoadingScreen extends StatefulWidget {
 
 class _LoadingScreenState extends State<LoadingScreen> {
   @override
-  Widget build(BuildContext context) {
-    // void initState() {
-    //   super.initState();
-
-    // }
-
-    void getCardapio() async {
-      List<dynamic> cardapio = [];
-
-      NetworkHelper get = NetworkHelper();
-
-      cardapio = await get.getData();
-      Provider.of<Data>(context, listen: false).changeCardapio(cardapio);
-      //Navigator.of(context).pop();
-      Navigator.pushReplacementNamed(context, MainScreen.id);
-    }
-
+  void initState() {
+    super.initState();
     getCardapio();
+  }
+
+  void getCardapio() async {
+    List<dynamic> cardapio = [];
+
+    NetworkHelper get = NetworkHelper();
+
+    cardapio = await get.getData();
+    Provider.of<Data>(context, listen: false).changeCardapio(cardapio);
+    //Navigator.of(context).pop();
+    Navigator.pushReplacementNamed(context, MainScreen.id);
+  }
+
+  Widget build(BuildContext context) {
     return Center(
       child: Container(
         alignment: Alignment.center,

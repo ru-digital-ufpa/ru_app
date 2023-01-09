@@ -12,31 +12,31 @@ class RuCard extends StatelessWidget {
   final String? comida5;
 
   final String refeicaoJantar;
-  final String nomeDaRefiJanter;
-  final String? vegetarianoJanter;
-  final String? comidaJanter1;
-  final String? comidaJanter2;
-  final String? comidaJanter3;
-  final String? comidaJanter4;
-  final String? comidaJanter5;
+  final String nomeDaRefiJantar;
+  final String? vegetarianoJantar;
+  final String? comidaJantar1;
+  final String? comidaJantar2;
+  final String? comidaJantar3;
+  final String? comidaJantar4;
+  final String? comidaJantar5;
 
   RuCard({
     required this.refeicao,
     required this.nomeDaRefi,
     required this.refeicaoJantar,
-    required this.nomeDaRefiJanter,
+    required this.nomeDaRefiJantar,
     this.vegetariano = '',
     this.comida1 = '',
     this.comida2 = '',
     this.comida3 = '',
     this.comida4 = '',
     this.comida5 = '',
-    this.vegetarianoJanter = '',
-    this.comidaJanter1 = '',
-    this.comidaJanter2 = '',
-    this.comidaJanter3 = '',
-    this.comidaJanter4 = '',
-    this.comidaJanter5 = '',
+    this.vegetarianoJantar = '',
+    this.comidaJantar1 = '',
+    this.comidaJantar2 = '',
+    this.comidaJantar3 = '',
+    this.comidaJantar4 = '',
+    this.comidaJantar5 = '',
   });
 
   @override
@@ -55,13 +55,13 @@ class RuCard extends StatelessWidget {
         ),
         CardContainer(
           refeicao: refeicaoJantar,
-          nomeDaRefi: nomeDaRefiJanter,
+          nomeDaRefi: nomeDaRefiJantar,
           vegetariano: vegetariano,
-          comida1: comidaJanter1,
-          comida2: comidaJanter2,
-          comida3: comidaJanter3,
-          comida4: comidaJanter4,
-          comida5: comidaJanter5,
+          comida1: comidaJantar1,
+          comida2: comidaJantar2,
+          comida3: comidaJantar3,
+          comida4: comidaJantar4,
+          comida5: comidaJantar5,
         ),
       ],
     );

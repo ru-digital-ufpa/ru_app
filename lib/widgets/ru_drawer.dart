@@ -17,7 +17,7 @@ class RuDrawer extends StatelessWidget {
               color: kPrimaryColor,
             ),
             child: Text(
-              'Drawer Header',
+              'RU Digital',
               style: TextStyle(
                 color: Colors.black,
                 fontSize: 24,
@@ -26,15 +26,15 @@ class RuDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: Icon(Icons.message),
-            title: Text('Messages'),
+            title: Text('Cardapio Completo'),
           ),
           ListTile(
             leading: Icon(Icons.account_circle),
-            title: Text('Profile'),
+            title: Text('Histórico do RU'),
           ),
           ListTile(
             leading: Icon(Icons.settings),
-            title: Text('Settings'),
+            title: Text('Sobre'),
           ),
         ],
       ),
