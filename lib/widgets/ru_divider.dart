@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ru_app/constants.dart';
 
 class RuDivider extends StatelessWidget {
   final String name;
@@ -7,34 +8,29 @@ class RuDivider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 5, bottom: 5),
-      child: Row(
-        children: [
-          const Expanded(
-            child: Divider(
-              color: Colors.grey,
-            ),
+    return Card(
+      elevation: 10,
+      color: kDividerColor,
+      margin: const EdgeInsets.only(
+        left: 50,
+        right: 50,
+        top: 5,
+        bottom: 5,
+      ),
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(
+          Radius.circular(20),
+        ),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(10),
+        child: Text(
+          name,
+          style: const TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.w500,
           ),
-          Padding(
-            padding: const EdgeInsets.only(
-              left: 5,
-              right: 5,
-            ),
-            child: Text(
-              name,
-              style: const TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-          ),
-          const Expanded(
-            child: Divider(
-              color: Colors.grey,
-            ),
-          ),
-        ],
+        ),
       ),
     );
   }

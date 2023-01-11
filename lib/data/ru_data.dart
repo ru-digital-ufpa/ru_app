@@ -14,17 +14,11 @@ class Data extends ChangeNotifier {
   void changeCardapioDeHoje(List<dynamic> newCardapioDeHoje) {
     List<dynamic> getCardapioDeHoje = [];
 
-    final String hoje = DateFormat('dd-MM-yyyy').format(
-      DateTime.now().add(
-        Duration(
-          days: -5,
-        ),
-      ),
-    );
+    final String hoje = DateFormat('dd-MM-yyyy').format(DateTime.now());
     final String amanha = DateFormat('dd-MM-yyyy').format(
       DateTime.now().add(
         Duration(
-          days: -4,
+          days: 1,
         ),
       ),
     );

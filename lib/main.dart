@@ -4,6 +4,7 @@ import 'package:ru_app/screens/main_screen.dart';
 import 'package:ru_app/constants.dart';
 import 'package:provider/provider.dart';
 import 'package:ru_app/data/ru_data.dart';
+import 'package:ru_app/screens/todo_cardapio_screen.dart';
 
 void main() => runApp(
       ChangeNotifierProvider(
@@ -20,11 +21,13 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.light().copyWith(
         primaryColor: kPrimaryColor,
       ),
+      color: kPrimaryColor,
       // home: CardapioDeHoje(),
       initialRoute: LoadingScreen.id,
       routes: {
         LoadingScreen.id: (context) => LoadingScreen(),
         MainScreen.id: (context) => MainScreen(),
+        TodoCardapioScreen.id: (context) => TodoCardapioScreen(),
       },
     );
   }
