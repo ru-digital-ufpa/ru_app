@@ -60,10 +60,37 @@ class RuDrawer extends StatelessWidget {
                   iconColor: kCartaoColor,
                   title: 'Recarregar seu cartão',
                   onPress: (() async {
-                    if (await canLaunchUrl(acessoFacilRuUrl)) {
-                      await launchUrl(acessoFacilRuUrl,
-                          mode: LaunchMode.externalApplication);
-                    }
+                    showDialog<String>(
+                      context: context,
+                      builder: (BuildContext context) => AlertDialog(
+                        title: const Text('Abrir no Navegador'),
+                        content: const Text(
+                            'https://sipac.ufpa.br. \nEste link vai abrir no navegador, você quer continuar?'),
+                        actions: <Widget>[
+                          TextButton(
+                            onPressed: () => Navigator.pop(context, 'Não'),
+                            child: const Text(
+                              'Não',
+                              style: TextStyle(fontSize: 16),
+                            ),
+                          ),
+                          TextButton(
+                            onPressed: () async {
+                              if (await canLaunchUrl(acessoFacilRuUrl)) {
+                                await launchUrl(acessoFacilRuUrl,
+                                    mode: LaunchMode.externalApplication);
+                              }
+                              // ignore: use_build_context_synchronously
+                              Navigator.pop(context, 'Sim');
+                            },
+                            child: const Text(
+                              'Sim',
+                              style: TextStyle(fontSize: 16),
+                            ),
+                          ),
+                        ],
+                      ),
+                    );
                   }),
                 ),
                 RuDrawerListTile(
@@ -76,19 +103,25 @@ class RuDrawer extends StatelessWidget {
                     }
                   }),
                 ),
-                const Divider(),
-                RuDrawerListTile(
-                  icon: Icons.group,
-                  iconColor: kTermoColor,
-                  title: 'Termo de uso e privacidade',
-                  onPress: () async {
-                    if (await canLaunchUrl(termoUrl)) {
-                      await launchUrl(termoUrl);
-                    }
-                  },
-                )
               ],
             ),
+          ),
+          const Divider(
+            endIndent: 10,
+            indent: 10,
+          ),
+          RuDrawerListTile(
+            icon: Icons.group,
+            iconColor: kTermoColor,
+            title: 'Termo de uso e privacidade',
+            onPress: () async {
+              if (await canLaunchUrl(termoUrl)) {
+                await launchUrl(termoUrl);
+              }
+            },
+          ),
+          const SizedBox(
+            height: 20,
           ),
           const SizedBox(
             child: Card(
@@ -127,3 +160,30 @@ class RuDrawer extends StatelessWidget {
     );
   }
 }
+
+// class RuAlertDialog extends StatelessWidget {
+//   const RuAlertDialog({Key? key}) : super(key: key);
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+//       child: showDialog<String>(
+//         context: context,
+//         builder: (BuildContext context) => AlertDialog(
+//           title: const Text('AlertDialog Title'),
+//           content: const Text('AlertDialog description'),
+//           actions: <Widget>[
+//             TextButton(
+//               onPressed: () => Navigator.pop(context, 'Cancel'),
+//               child: const Text('Cancel'),
+//             ),
+//             TextButton(
+//               onPressed: () => Navigator.pop(context, 'OK'),
+//               child: const Text('OK'),
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }

@@ -13,6 +13,9 @@ class TodoCardapioScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: kPrimaryColor,
+        iconTheme: const IconThemeData(
+          color: kNavbarBackgroundColor,
+        ),
         title: const Text(
           'Cardapio Completo da Semana',
           style: TextStyle(

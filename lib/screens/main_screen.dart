@@ -17,6 +17,9 @@ class _MainScreenState extends State<MainScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: kPrimaryColor,
+        iconTheme: const IconThemeData(
+          color: kNavbarBackgroundColor,
+        ),
         title: const Text(
           'RU DIGITAL',
           style: TextStyle(

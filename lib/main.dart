@@ -9,7 +9,7 @@ import 'package:ru_app/screens/todo_cardapio_screen.dart';
 void main() => runApp(
       ChangeNotifierProvider(
         create: (_) => Data(),
-        child: MyApp(),
+        child: const MyApp(),
       ),
     );
 
@@ -22,6 +22,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData.light().copyWith(
         primaryColor: kPrimaryColor,
+        useMaterial3: true,
       ),
       color: kPrimaryColor,
       // home: CardapioDeHoje(),
