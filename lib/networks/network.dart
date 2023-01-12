@@ -9,7 +9,7 @@ class NetworkHelper {
     http.Response response = await http.get(
       Uri.parse('https://prinako-ru.cyclic.app/api'),
     );
-    print(response.statusCode);
+    // print(response.statusCode);
     if (response.statusCode == 200) {
       final body = response.body;
       final json = jsonDecode(body);

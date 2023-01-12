@@ -4,10 +4,13 @@ import 'package:intl/intl.dart';
 class Data extends ChangeNotifier {
   List<dynamic> cardapio = [];
   List<dynamic> cardapioDeHoje = [];
+  late bool isWeekEnd = false;
+  late bool isSexta = false;
 
   void changeCardapio(List<dynamic> newCardapio) {
     cardapio = newCardapio;
     changeCardapioDeHoje(cardapio);
+    goingToWeekEnd();
     notifyListeners();
   }
 
@@ -17,7 +20,7 @@ class Data extends ChangeNotifier {
     final String hoje = DateFormat('dd-MM-yyyy').format(DateTime.now());
     final String amanha = DateFormat('dd-MM-yyyy').format(
       DateTime.now().add(
-        Duration(
+        const Duration(
           days: 1,
         ),
       ),
@@ -36,6 +39,18 @@ class Data extends ChangeNotifier {
     // print(hoje);
     // print(amanha);
     // print(getCardapioDeHoje);
+    notifyListeners();
+  }
+
+  void goingToWeekEnd() {
+    final String toDay = DateFormat('EEEE').format(DateTime.now());
+
+    if (toDay == 'Thursday' || toDay == 'Saturday' || toDay == 'Sunday') {
+      isSexta = !isSexta;
+    }
+    if (toDay == 'Saturday' || toDay == 'Sunday') {
+      isWeekEnd = !isWeekEnd;
+    }
     notifyListeners();
   }
 }

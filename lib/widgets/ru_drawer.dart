@@ -54,10 +54,16 @@ class RuDrawer extends StatelessWidget {
               ],
             ),
           ),
-          const Expanded(
-            child: Text(
-              'Hello',
-              style: TextStyle(fontSize: 16),
+          Expanded(
+            child: Container(
+              child: Text(
+                'Este aplicativo é um projeto de um aluno da Universidade Federal do Pará - UFPA, portanto não é oficial da Superintendência de Assistência Estudantil – SAEST/UFPA.',
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
+                ),
+                textAlign: TextAlign.center,
+              ),
             ),
           )
         ],

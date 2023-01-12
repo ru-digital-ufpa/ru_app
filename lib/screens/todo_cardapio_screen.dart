@@ -26,6 +26,8 @@ class TodoCardapioScreen extends StatelessWidget {
         child: ListView.builder(
           itemCount: Provider.of<Data>(context).cardapio.length,
           itemBuilder: (context, index) {
+            Provider.of<Data>(context).cardapio.sort((item1, item2) =>
+                item1['data'].toString().compareTo(item2['data']));
             return Column(
               children: [
                 RuDivider(

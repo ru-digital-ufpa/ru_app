@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.ru_app">
    <application
-        android:label="ru_app"
+        android:label="RU Digital UFPA"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

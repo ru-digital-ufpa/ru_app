@@ -9,7 +9,7 @@ class LoadingScreen extends StatefulWidget {
   static String id = 'loading_screen';
 
   @override
-  _LoadingScreenState createState() => _LoadingScreenState();
+  State<LoadingScreen> createState() => _LoadingScreenState();
 }
 
 class _LoadingScreenState extends State<LoadingScreen> {
@@ -26,7 +26,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
 
     cardapio = await get.getData();
     Provider.of<Data>(context, listen: false).changeCardapio(cardapio);
-    //Navigator.of(context).pop();
+    // ignore: use_build_context_synchronously
     Navigator.pushReplacementNamed(context, MainScreen.id);
   }
 

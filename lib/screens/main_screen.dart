@@ -41,7 +41,7 @@ class _MainScreenState extends State<MainScreen> {
           ),
         ],
       ),
-      body: const SafeArea(
+      body: SafeArea(
         child: RuListView(),
       ),
       drawer: const RuDrawer(),
