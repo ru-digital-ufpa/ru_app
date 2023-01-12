@@ -33,12 +33,9 @@ class Data extends ChangeNotifier {
       if (amanha == newCardapioDeHoje[i]['data'].toString()) {
         getCardapioDeHoje.add(newCardapioDeHoje[i]);
       }
-      // print(cardapio[i]['data']);
     }
     cardapioDeHoje = getCardapioDeHoje;
-    // print(hoje);
-    // print(amanha);
-    // print(getCardapioDeHoje);
+
     notifyListeners();
   }
 
