@@ -1,6 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:ru_app/constants.dart';
 import 'package:ru_app/screens/todo_cardapio_screen.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:ru_app/widgets/ru_drawer_list_tile.dart';
+
+final Uri termoUrl = Uri.parse(
+    'https://sites.google.com/view/privacidade-ru-digital/in%C3%ADcio');
+final Uri historyUrl = Uri.parse('https://saest.ufpa.br/ru/index.php/d-2');
+final Uri precosUrl = Uri.parse('https://saest.ufpa.br/ru/index.php/valores');
+final Uri acessoFacilRuUrl = Uri.parse('https://sipac.ufpa.br/sipac/');
 
 class RuDrawer extends StatelessWidget {
   const RuDrawer({
@@ -29,76 +37,92 @@ class RuDrawer extends StatelessWidget {
                     ),
                   ),
                 ),
-                RuListTile(
+                RuDrawerListTile(
+                  iconColor: kCardapioIconColor,
                   icon: Icons.food_bank,
                   title: 'Cardapio Completo',
                   onPress: () {
-                    // TODO :functional
                     Navigator.pushNamed(context, TodoCardapioScreen.id);
                   },
                 ),
-                RuListTile(
-                  icon: Icons.history_edu,
-                  title: 'Histórico do RU',
-                  onPress: (() {
-                    // TODO:functional
+                RuDrawerListTile(
+                  icon: Icons.price_change,
+                  iconColor: kPrecoIconColor,
+                  title: 'Preço do bandejão',
+                  onPress: (() async {
+                    if (await canLaunchUrl(precosUrl)) {
+                      await launchUrl(precosUrl);
+                    }
                   }),
                 ),
-                RuListTile(
+                RuDrawerListTile(
+                  icon: Icons.payment,
+                  iconColor: kCartaoColor,
+                  title: 'Recarregar seu cartão',
+                  onPress: (() async {
+                    if (await canLaunchUrl(acessoFacilRuUrl)) {
+                      await launchUrl(acessoFacilRuUrl,
+                          mode: LaunchMode.externalApplication);
+                    }
+                  }),
+                ),
+                RuDrawerListTile(
+                  icon: Icons.history_edu,
+                  iconColor: kHistoricoColor,
+                  title: 'Histórico do RU',
+                  onPress: (() async {
+                    if (await canLaunchUrl(historyUrl)) {
+                      await launchUrl(historyUrl);
+                    }
+                  }),
+                ),
+                const Divider(),
+                RuDrawerListTile(
                   icon: Icons.group,
-                  title: 'Sobre',
-                  onPress: () {
-                    // TODO:functional
+                  iconColor: kTermoColor,
+                  title: 'Termo de uso e privacidade',
+                  onPress: () async {
+                    if (await canLaunchUrl(termoUrl)) {
+                      await launchUrl(termoUrl);
+                    }
                   },
                 )
               ],
             ),
           ),
-          Expanded(
-            child: Container(
-              child: Text(
-                'Este aplicativo é um projeto de um aluno da Universidade Federal do Pará - UFPA, portanto não é oficial da Superintendência de Assistência Estudantil – SAEST/UFPA.',
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
+          const SizedBox(
+            child: Card(
+              margin: EdgeInsets.only(
+                left: 5,
+                right: 5,
+                bottom: 10,
+              ),
+              elevation: 5,
+              color: kInfoTextColor,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(
+                  Radius.circular(10),
                 ),
-                textAlign: TextAlign.center,
+              ),
+              child: Padding(
+                padding: EdgeInsets.only(
+                  left: 10,
+                  right: 10,
+                  top: 15,
+                  bottom: 15,
+                ),
+                child: Text(
+                  'Este aplicativo é um projeto de um aluno da Universidade Federal do Pará - UFPA, portanto não é oficial da Superintendência de Assistência Estudantil – SAEST/UFPA.',
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w400,
+                  ),
+                  textAlign: TextAlign.justify,
+                ),
               ),
             ),
           )
         ],
-      ),
-    );
-  }
-}
-
-class RuListTile extends StatelessWidget {
-  final IconData icon;
-  final String title;
-  final VoidCallback onPress;
-
-  const RuListTile({
-    super.key,
-    required this.icon,
-    required this.title,
-    required this.onPress,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onPress,
-      child: ListTile(
-        leading: Icon(
-          icon,
-          size: 25,
-        ),
-        title: Text(
-          title,
-          style: const TextStyle(
-            fontSize: 20,
-          ),
-        ),
       ),
     );
   }
