@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:ru_app/networks/network.dart';
 
 class Data extends ChangeNotifier {
   List<dynamic> cardapio = [];
@@ -49,5 +50,18 @@ class Data extends ChangeNotifier {
       isWeekEnd = !isWeekEnd;
     }
     notifyListeners();
+  }
+
+  Future<bool> getCardapio() async {
+    List<dynamic> cardapio = [];
+
+    NetworkHelper get = NetworkHelper();
+
+    cardapio = await get.getData();
+    // ignore: use_build_context_synchronously
+    changeCardapio(cardapio);
+    return Future.value(true);
+
+    // ignore: use_build_context_synchronously
   }
 }

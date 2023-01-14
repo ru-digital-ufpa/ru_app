@@ -11,32 +11,15 @@ class RuCard extends StatelessWidget {
   final String? comida4;
   final String? comida5;
 
-  // final String refeicaoJantar;
-  // final String nomeDaRefiJantar;
-  // final String? vegetarianoJantar;
-  // final String? comidaJantar1;
-  // final String? comidaJantar2;
-  // final String? comidaJantar3;
-  // final String? comidaJantar4;
-  // final String? comidaJantar5;
-
   RuCard({
     required this.refeicao,
     required this.nomeDaRefi,
-    // required this.refeicaoJantar,
-    // required this.nomeDaRefiJantar,
     this.vegetariano = '',
     this.comida1 = '',
     this.comida2 = '',
     this.comida3 = '',
     this.comida4 = '',
     this.comida5 = '',
-    // this.vegetarianoJantar = '',
-    // this.comidaJantar1 = '',
-    // this.comidaJantar2 = '',
-    // this.comidaJantar3 = '',
-    // this.comidaJantar4 = '',
-    // this.comidaJantar5 = '',
   });
 
   @override
@@ -80,13 +63,13 @@ class CardContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      // height: 300,
-      // ignore: prefer_const_constructors
       child: Padding(
         padding: const EdgeInsets.all(6.0),
         child: Card(
           elevation: 10,
-          color: refeicao == 'ALMOÇO' ? kAlmocoColor : kJantarColor,
+          color: refeicao == 'ALMOÇO' || refeicao == 'ALMOÇO 11:00h - 14:00h'
+              ? kAlmocoColor
+              : kJantarColor,
           shadowColor: kSecondaryColor,
           shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(

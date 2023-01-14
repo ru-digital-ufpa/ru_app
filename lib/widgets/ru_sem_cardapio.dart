@@ -5,11 +5,10 @@ class SemCardapio extends StatelessWidget {
   final String refeicao;
   final String nomeDaRefi;
 
-  const SemCardapio({
-    Key? key,
+  SemCardapio({
     required this.nomeDaRefi,
     required this.refeicao,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +20,7 @@ class SemCardapio extends StatelessWidget {
         padding: const EdgeInsets.all(6.0),
         child: Card(
           elevation: 10,
-          color: refeicao == 'ALMOÇO' ? kAlmocoColor : kJantarColor,
+          color: kSemCardapioColor,
           shadowColor: kSecondaryColor,
           shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(
@@ -46,7 +45,7 @@ class SemCardapio extends StatelessWidget {
                 Text(
                   nomeDaRefi,
                   style: const TextStyle(
-                    fontSize: 15,
+                    fontSize: 17,
                     fontWeight: FontWeight.w500,
                   ),
                 ),

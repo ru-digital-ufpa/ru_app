@@ -31,6 +31,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
     Navigator.pushReplacementNamed(context, MainScreen.id);
   }
 
+  @override
   Widget build(BuildContext context) {
     return Center(
       child: Container(

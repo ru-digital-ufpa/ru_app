@@ -18,6 +18,8 @@ const kCartaoColor = Color(0xFF39B5E0);
 const kInfoTextColor = Color(0xFFE5BA73);
 const kHistoricoColor = Color(0xFFDA723C);
 const kTermoColor = Colors.blueAccent;
+const kSemCardapioColor = Color(0xFFFCD2D1);
+
 const TextStyle kTextStyle = TextStyle(
   fontSize: 16,
   fontWeight: FontWeight.w400,
