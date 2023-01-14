@@ -11,59 +11,45 @@ class RuCard extends StatelessWidget {
   final String? comida4;
   final String? comida5;
 
-  final String refeicaoJantar;
-  final String nomeDaRefiJantar;
-  final String? vegetarianoJantar;
-  final String? comidaJantar1;
-  final String? comidaJantar2;
-  final String? comidaJantar3;
-  final String? comidaJantar4;
-  final String? comidaJantar5;
+  // final String refeicaoJantar;
+  // final String nomeDaRefiJantar;
+  // final String? vegetarianoJantar;
+  // final String? comidaJantar1;
+  // final String? comidaJantar2;
+  // final String? comidaJantar3;
+  // final String? comidaJantar4;
+  // final String? comidaJantar5;
 
   RuCard({
     required this.refeicao,
     required this.nomeDaRefi,
-    required this.refeicaoJantar,
-    required this.nomeDaRefiJantar,
+    // required this.refeicaoJantar,
+    // required this.nomeDaRefiJantar,
     this.vegetariano = '',
     this.comida1 = '',
     this.comida2 = '',
     this.comida3 = '',
     this.comida4 = '',
     this.comida5 = '',
-    this.vegetarianoJantar = '',
-    this.comidaJantar1 = '',
-    this.comidaJantar2 = '',
-    this.comidaJantar3 = '',
-    this.comidaJantar4 = '',
-    this.comidaJantar5 = '',
+    // this.vegetarianoJantar = '',
+    // this.comidaJantar1 = '',
+    // this.comidaJantar2 = '',
+    // this.comidaJantar3 = '',
+    // this.comidaJantar4 = '',
+    // this.comidaJantar5 = '',
   });
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        CardContainer(
-          refeicao: refeicao,
-          nomeDaRefi: nomeDaRefi,
-          vegetariano: vegetariano,
-          comida1: comida1,
-          comida2: comida2,
-          comida3: comida3,
-          comida4: comida4,
-          comida5: comida5,
-        ),
-        CardContainer(
-          refeicao: refeicaoJantar,
-          nomeDaRefi: nomeDaRefiJantar,
-          vegetariano: vegetariano,
-          comida1: comidaJantar1,
-          comida2: comidaJantar2,
-          comida3: comidaJantar3,
-          comida4: comidaJantar4,
-          comida5: comidaJantar5,
-        ),
-      ],
+    return CardContainer(
+      refeicao: refeicao,
+      nomeDaRefi: nomeDaRefi,
+      vegetariano: vegetariano,
+      comida1: comida1,
+      comida2: comida2,
+      comida3: comida3,
+      comida4: comida4,
+      comida5: comida5,
     );
   }
 }
@@ -92,7 +78,7 @@ class CardContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: double.infinity,
       // height: 300,
       // ignore: prefer_const_constructors

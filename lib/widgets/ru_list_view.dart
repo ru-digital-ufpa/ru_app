@@ -7,6 +7,8 @@ import 'package:ru_app/widgets/main_list_view.dart';
 import 'package:ru_app/widgets/today_is_sexta.dart';
 
 class RuListView extends StatelessWidget {
+  const RuListView({super.key});
+
   @override
   Widget build(BuildContext context) {
     int weekEnd = Provider.of<Data>(context).cardapioDeHoje.length;
@@ -15,7 +17,7 @@ class RuListView extends StatelessWidget {
         ? const MainListView()
         : weekEnd == 1
             ? const ToDayIsSexta()
-            : NoCardapio(
+            : const NoCardapio(
                 msg: 'Sem cardápio aos fim de semana',
                 color: kWeekEndColor,
               );

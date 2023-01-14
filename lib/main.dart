@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
       routes: {
         LoadingScreen.id: (context) => LoadingScreen(),
         MainScreen.id: (context) => MainScreen(),
-        TodoCardapioScreen.id: (context) => TodoCardapioScreen(),
+        TodoCardapioScreen.id: (context) => const TodoCardapioScreen(),
       },
     );
   }
