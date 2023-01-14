@@ -8,27 +8,27 @@ class RuDivider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 10,
-      color: kDividerColor,
-      margin: const EdgeInsets.only(
-        left: 50,
-        right: 50,
-        top: 5,
-        bottom: 5,
-      ),
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(
-          Radius.circular(20),
+    return Center(
+      child: Card(
+        elevation: 5,
+        color: kDividerColor,
+        margin: const EdgeInsets.only(
+          top: 8,
+          bottom: 8,
         ),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(10),
-        child: Text(
-          name,
-          style: const TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.w500,
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(
+            Radius.circular(20),
+          ),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(10),
+          child: Text(
+            name,
+            style: const TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.w500,
+            ),
           ),
         ),
       ),

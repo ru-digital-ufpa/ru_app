@@ -18,7 +18,7 @@ class RuListView extends StatelessWidget {
         : weekEnd == 1
             ? const ToDayIsSexta()
             : const NoCardapio(
-                msg: 'Sem cardápio aos fim de semana',
+                msg: 'Sem funcionamento aos fins de semana',
                 color: kWeekEndColor,
               );
   }

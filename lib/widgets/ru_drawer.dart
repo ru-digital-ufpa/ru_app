@@ -20,23 +20,34 @@ class RuDrawer extends StatelessWidget {
     return Drawer(
       child: Column(
         children: [
+          const Flexible(
+            child: SizedBox(
+              width: double.infinity,
+              child: DrawerHeader(
+                padding: EdgeInsets.only(
+                  top: 10,
+                  bottom: 5,
+                  right: 5,
+                  left: 10,
+                ),
+                decoration: BoxDecoration(
+                  color: kPrimaryColor,
+                ),
+                child: Text(
+                  'RU DIGITAL',
+                  style: TextStyle(
+                    color: kNavbarBackgroundColor,
+                    fontSize: 24,
+                  ),
+                ),
+              ),
+            ),
+          ),
           Expanded(
-            flex: 7,
+            flex: 2,
             child: ListView(
               padding: EdgeInsets.zero,
               children: <Widget>[
-                const DrawerHeader(
-                  decoration: BoxDecoration(
-                    color: kPrimaryColor,
-                  ),
-                  child: Text(
-                    'RU DIGITAL',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 24,
-                    ),
-                  ),
-                ),
                 RuDrawerListTile(
                   iconColor: kCardapioIconColor,
                   icon: Icons.food_bank,
@@ -106,53 +117,63 @@ class RuDrawer extends StatelessWidget {
               ],
             ),
           ),
-          const Divider(
-            endIndent: 10,
-            indent: 10,
-          ),
-          RuDrawerListTile(
-            icon: Icons.group,
-            iconColor: kTermoColor,
-            title: 'Termo de uso e privacidade',
-            onPress: () async {
-              if (await canLaunchUrl(termoUrl)) {
-                await launchUrl(termoUrl);
-              }
-            },
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          const SizedBox(
-            child: Card(
-              margin: EdgeInsets.only(
-                left: 5,
-                right: 5,
-                bottom: 10,
-              ),
-              elevation: 5,
-              color: kInfoTextColor,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(
-                  Radius.circular(10),
+
+          // const SizedBox(
+          //   height: 5,
+          // ),
+          Flexible(
+            fit: FlexFit.tight,
+            flex: 2,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: <Widget>[
+                const Divider(
+                  endIndent: 10,
+                  indent: 10,
                 ),
-              ),
-              child: Padding(
-                padding: EdgeInsets.only(
-                  left: 10,
-                  right: 10,
-                  top: 15,
-                  bottom: 15,
+                RuDrawerListTile(
+                  icon: Icons.group,
+                  iconColor: kTermoColor,
+                  title: 'Termo de uso e privacidade',
+                  onPress: () async {
+                    if (await canLaunchUrl(termoUrl)) {
+                      await launchUrl(termoUrl);
+                    }
+                  },
                 ),
-                child: Text(
-                  'Este aplicativo é um projeto de um aluno da Universidade Federal do Pará - UFPA, portanto não é oficial da Superintendência de Assistência Estudantil – SAEST/UFPA.',
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w400,
+                const SizedBox(
+                  child: Card(
+                    margin: EdgeInsets.only(
+                      left: 5,
+                      right: 5,
+                      bottom: 5,
+                    ),
+                    elevation: 5,
+                    color: kInfoTextColor,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(10),
+                      ),
+                    ),
+                    child: Padding(
+                      padding: EdgeInsets.only(
+                        left: 10,
+                        right: 10,
+                        top: 15,
+                        bottom: 15,
+                      ),
+                      child: Text(
+                        'Este aplicativo é um projeto de um aluno da Universidade Federal do Pará - UFPA, portanto não é oficial da Superintendência de Assistência Estudantil – SAEST/UFPA.',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w400,
+                        ),
+                        textAlign: TextAlign.justify,
+                      ),
+                    ),
                   ),
-                  textAlign: TextAlign.justify,
                 ),
-              ),
+              ],
             ),
           )
         ],
@@ -160,30 +181,3 @@ class RuDrawer extends StatelessWidget {
     );
   }
 }
-
-// class RuAlertDialog extends StatelessWidget {
-//   const RuAlertDialog({Key? key}) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//       child: showDialog<String>(
-//         context: context,
-//         builder: (BuildContext context) => AlertDialog(
-//           title: const Text('AlertDialog Title'),
-//           content: const Text('AlertDialog description'),
-//           actions: <Widget>[
-//             TextButton(
-//               onPressed: () => Navigator.pop(context, 'Cancel'),
-//               child: const Text('Cancel'),
-//             ),
-//             TextButton(
-//               onPressed: () => Navigator.pop(context, 'OK'),
-//               child: const Text('OK'),
-//             ),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }

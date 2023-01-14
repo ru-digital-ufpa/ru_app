@@ -64,9 +64,9 @@ class CardContainer extends StatelessWidget {
     return SizedBox(
       width: double.infinity,
       child: Padding(
-        padding: const EdgeInsets.all(6.0),
+        padding: const EdgeInsets.all(2.0),
         child: Card(
-          elevation: 10,
+          elevation: 5,
           color: refeicao == 'ALMOÇO' || refeicao == 'ALMOÇO 11:00h - 14:00h'
               ? kAlmocoColor
               : kJantarColor,
@@ -78,18 +78,18 @@ class CardContainer extends StatelessWidget {
           ),
           child: Padding(
             padding:
-                const EdgeInsets.only(left: 15, right: 15, top: 20, bottom: 20),
+                const EdgeInsets.only(left: 8, right: 8, top: 5, bottom: 5),
             child: Column(
               children: <Widget>[
                 Text(
                   refeicao,
                   style: const TextStyle(
                     fontSize: 20,
-                    fontWeight: FontWeight.w900,
+                    fontWeight: FontWeight.w800,
                   ),
                 ),
                 const SizedBox(
-                  height: 20,
+                  height: 10,
                 ),
                 Text(
                   nomeDaRefi,
@@ -110,12 +110,12 @@ class CardContainer extends StatelessWidget {
                       const Text(
                         'Vegetariano:',
                         style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.w500,
+                          fontSize: 18,
+                          fontWeight: FontWeight.w600,
                         ),
                       ),
                       const SizedBox(
-                        width: 10,
+                        width: 1,
                       ),
                       Text(
                         '$vegetariano',
@@ -128,7 +128,7 @@ class CardContainer extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(
-                  height: 20,
+                  height: 10,
                 ),
                 SizedBox(
                   width: double.infinity,

@@ -19,6 +19,7 @@ class RuDrawerListTile extends StatelessWidget {
     return GestureDetector(
       onTap: onPress,
       child: ListTile(
+        dense: true,
         leading: Icon(
           icon,
           size: 30,
@@ -27,7 +28,7 @@ class RuDrawerListTile extends StatelessWidget {
         title: Text(
           title,
           style: const TextStyle(
-            fontSize: 20,
+            fontSize: 18,
           ),
         ),
       ),

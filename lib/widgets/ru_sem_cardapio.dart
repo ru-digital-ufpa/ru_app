@@ -14,12 +14,10 @@ class SemCardapio extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      // height: 300,
-      // ignore: prefer_const_constructors
       child: Padding(
-        padding: const EdgeInsets.all(6.0),
+        padding: const EdgeInsets.all(2.0),
         child: Card(
-          elevation: 10,
+          elevation: 5,
           color: kSemCardapioColor,
           shadowColor: kSecondaryColor,
           shape: const RoundedRectangleBorder(
@@ -29,7 +27,7 @@ class SemCardapio extends StatelessWidget {
           ),
           child: Padding(
             padding:
-                const EdgeInsets.only(left: 15, right: 15, top: 20, bottom: 20),
+                const EdgeInsets.only(left: 8, right: 8, top: 5, bottom: 10),
             child: Column(
               children: <Widget>[
                 Text(
@@ -40,13 +38,13 @@ class SemCardapio extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(
-                  height: 20,
+                  height: 10,
                 ),
                 Text(
                   nomeDaRefi,
                   style: const TextStyle(
                     fontSize: 17,
-                    fontWeight: FontWeight.w500,
+                    fontWeight: FontWeight.w400,
                   ),
                 ),
               ],

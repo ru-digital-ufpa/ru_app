@@ -55,65 +55,68 @@ class _TodoCardapioScreenState extends State<TodoCardapioScreen> {
 
               final int semJantar =
                   Provider.of<Data>(context).cardapio[index]['jantar'].length;
-              return Column(
-                children: [
-                  RuDivider(
-                    name:
-                        '${Provider.of<Data>(context).cardapio[index]['dia'].toString()} / ${Provider.of<Data>(context).cardapio[index]['data'].toString()}',
-                  ),
-                  //For almoço
-                  semAlmoco > 2 && isSemAlmoco != 'SEM FUNCIONAMENTO'
-                      ? RuCard(
-                          refeicao: Provider.of<Data>(context).cardapio[index]
-                              ['amoco']['refeicao'],
-                          nomeDaRefi: Provider.of<Data>(context).cardapio[index]
-                              ['amoco']['nomeDaRefei'],
-                          vegetariano: Provider.of<Data>(context)
-                              .cardapio[index]['amoco']['vegetariano1'],
-                          comida1: Provider.of<Data>(context).cardapio[index]
-                              ['amoco']['ingredintes']['amo1'],
-                          comida2: Provider.of<Data>(context).cardapio[index]
-                              ['amoco']['ingredintes']['amo2'],
-                          comida3: Provider.of<Data>(context).cardapio[index]
-                              ['amoco']['ingredintes']['amo3'],
-                          comida4: Provider.of<Data>(context).cardapio[index]
-                              ['amoco']['ingredintes']['amo4'],
-                          comida5: Provider.of<Data>(context).cardapio[index]
-                              ['amoco']['ingredintes']['amo5'],
-                        )
-                      : SemCardapio(
-                          refeicao:
-                              '${Provider.of<Data>(context).cardapio[index]['amoco']['refeicao']} ',
-                          nomeDaRefi: Provider.of<Data>(context).cardapio[index]
-                              ['amoco']['nomeDaRefei'],
-                        ),
-                  //For jantar
-                  semJantar > 2 && isSemJantar != 'SEM FUNCIONAMENTO'
-                      ? RuCard(
-                          refeicao: Provider.of<Data>(context).cardapio[index]
-                              ['jantar']['refeicao'],
-                          nomeDaRefi: Provider.of<Data>(context).cardapio[index]
-                              ['jantar']['nomeDaRefei'],
-                          vegetariano: Provider.of<Data>(context)
-                              .cardapio[index]['jantar']['vegetariano2'],
-                          comida1: Provider.of<Data>(context).cardapio[index]
-                              ['jantar']['ingredintes']['jan1'],
-                          comida2: Provider.of<Data>(context).cardapio[index]
-                              ['jantar']['ingredintes']['jan2'],
-                          comida3: Provider.of<Data>(context).cardapio[index]
-                              ['jantar']['ingredintes']['jan3'],
-                          comida4: Provider.of<Data>(context).cardapio[index]
-                              ['jantar']['ingredintes']['jan4'],
-                          comida5: Provider.of<Data>(context).cardapio[index]
-                              ['jantar']['ingredintes']['jan5'],
-                        )
-                      : SemCardapio(
-                          nomeDaRefi: Provider.of<Data>(context).cardapio[index]
-                              ['jantar']['nomeDaRefei'],
-                          refeicao: Provider.of<Data>(context).cardapio[index]
-                              ['jantar']['refeicao'],
-                        )
-                ],
+              return Padding(
+                padding: const EdgeInsets.only(bottom: 8.0),
+                child: Column(
+                  children: [
+                    RuDivider(
+                      name:
+                          '${Provider.of<Data>(context).cardapio[index]['dia'].toString()} / ${Provider.of<Data>(context).cardapio[index]['data'].toString()}',
+                    ),
+                    //For almoço
+                    semAlmoco > 2 && isSemAlmoco != 'SEM FUNCIONAMENTO'
+                        ? RuCard(
+                            refeicao: Provider.of<Data>(context).cardapio[index]
+                                ['amoco']['refeicao'],
+                            nomeDaRefi: Provider.of<Data>(context)
+                                .cardapio[index]['amoco']['nomeDaRefei'],
+                            vegetariano: Provider.of<Data>(context)
+                                .cardapio[index]['amoco']['vegetariano1'],
+                            comida1: Provider.of<Data>(context).cardapio[index]
+                                ['amoco']['ingredintes']['amo1'],
+                            comida2: Provider.of<Data>(context).cardapio[index]
+                                ['amoco']['ingredintes']['amo2'],
+                            comida3: Provider.of<Data>(context).cardapio[index]
+                                ['amoco']['ingredintes']['amo3'],
+                            comida4: Provider.of<Data>(context).cardapio[index]
+                                ['amoco']['ingredintes']['amo4'],
+                            comida5: Provider.of<Data>(context).cardapio[index]
+                                ['amoco']['ingredintes']['amo5'],
+                          )
+                        : SemCardapio(
+                            refeicao:
+                                '${Provider.of<Data>(context).cardapio[index]['amoco']['refeicao']} ',
+                            nomeDaRefi: Provider.of<Data>(context)
+                                .cardapio[index]['amoco']['nomeDaRefei'],
+                          ),
+                    //For jantar
+                    semJantar > 2 && isSemJantar != 'SEM FUNCIONAMENTO'
+                        ? RuCard(
+                            refeicao: Provider.of<Data>(context).cardapio[index]
+                                ['jantar']['refeicao'],
+                            nomeDaRefi: Provider.of<Data>(context)
+                                .cardapio[index]['jantar']['nomeDaRefei'],
+                            vegetariano: Provider.of<Data>(context)
+                                .cardapio[index]['jantar']['vegetariano2'],
+                            comida1: Provider.of<Data>(context).cardapio[index]
+                                ['jantar']['ingredintes']['jan1'],
+                            comida2: Provider.of<Data>(context).cardapio[index]
+                                ['jantar']['ingredintes']['jan2'],
+                            comida3: Provider.of<Data>(context).cardapio[index]
+                                ['jantar']['ingredintes']['jan3'],
+                            comida4: Provider.of<Data>(context).cardapio[index]
+                                ['jantar']['ingredintes']['jan4'],
+                            comida5: Provider.of<Data>(context).cardapio[index]
+                                ['jantar']['ingredintes']['jan5'],
+                          )
+                        : SemCardapio(
+                            nomeDaRefi: Provider.of<Data>(context)
+                                .cardapio[index]['jantar']['nomeDaRefei'],
+                            refeicao: Provider.of<Data>(context).cardapio[index]
+                                ['jantar']['refeicao'],
+                          )
+                  ],
+                ),
               );
             },
           ),

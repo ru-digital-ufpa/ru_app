@@ -85,7 +85,7 @@ class ToDayIsSexta extends StatelessWidget {
                   ),
             const RuDivider(name: 'Amanhã'),
             const NoCardapio(
-              msg: 'Sem cardápio aos sábados',
+              msg: 'Sem funcionamento aos sábados',
               color: kSextaColor,
             ),
           ],

@@ -18,21 +18,22 @@ class NoCardapio extends StatelessWidget {
     return SizedBox(
       width: double.infinity,
       child: Padding(
-        padding: const EdgeInsets.all(6.0),
+        padding: const EdgeInsets.all(2.0),
         child: Card(
           elevation: 2,
           color: color,
           shadowColor: kSecondaryColor,
           shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(
-              Radius.circular(20),
+              Radius.circular(10),
             ),
           ),
           child: Padding(
-            padding: const EdgeInsets.all(15.0),
+            padding: const EdgeInsets.all(10.0),
             child: Center(
               child: Text(
                 msg,
+                textAlign: TextAlign.center,
                 style: const TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.w500,

@@ -21,6 +21,6 @@ const kTermoColor = Colors.blueAccent;
 const kSemCardapioColor = Color(0xFFFCD2D1);
 
 const TextStyle kTextStyle = TextStyle(
-  fontSize: 16,
+  fontSize: 15,
   fontWeight: FontWeight.w400,
 );
