@@ -25,7 +25,6 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       color: kPrimaryColor,
-      // home: CardapioDeHoje(),
       initialRoute: LoadingScreen.id,
       routes: {
         LoadingScreen.id: (context) => LoadingScreen(),
