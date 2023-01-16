@@ -11,7 +11,8 @@ class RuCard extends StatelessWidget {
   final String? comida4;
   final String? comida5;
 
-  RuCard({
+  const RuCard({
+    super.key,
     required this.refeicao,
     required this.nomeDaRefi,
     this.vegetariano = '',
@@ -136,23 +137,23 @@ class CardContainer extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        '$comida1',
+                        comida1 ?? '',
                         style: kTextStyle,
                       ),
                       Text(
-                        '$comida2',
+                        comida2 ?? '',
                         style: kTextStyle,
                       ),
                       Text(
-                        '$comida3',
+                        comida3 ?? '',
                         style: kTextStyle,
                       ),
                       Text(
-                        '$comida4',
+                        comida4 ?? '',
                         style: kTextStyle,
                       ),
                       Text(
-                        '$comida5',
+                        comida5 ?? '',
                         style: kTextStyle,
                       ),
                     ],

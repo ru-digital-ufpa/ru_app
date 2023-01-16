@@ -5,13 +5,14 @@ import 'package:ru_app/networks/network.dart';
 class Data extends ChangeNotifier {
   List<dynamic> cardapio = [];
   List<dynamic> cardapioDeHoje = [];
-  late bool isWeekEnd = false;
-  late bool isSexta = false;
+  // late bool isWeekEnd = false;
+  // late bool isSexta = false;
+  late bool noUpdate = false;
 
   void changeCardapio(List<dynamic> newCardapio) {
     cardapio = newCardapio;
     changeCardapioDeHoje(cardapio);
-    goingToWeekEnd();
+    getDayOfWeekEnd();
     notifyListeners();
   }
 
@@ -40,14 +41,17 @@ class Data extends ChangeNotifier {
     notifyListeners();
   }
 
-  void goingToWeekEnd() {
+  void getDayOfWeekEnd() {
     final String toDay = DateFormat('EEEE').format(DateTime.now());
 
-    if (toDay == 'Thursday' || toDay == 'Saturday' || toDay == 'Sunday') {
-      isSexta = !isSexta;
-    }
-    if (toDay == 'Saturday' || toDay == 'Sunday') {
-      isWeekEnd = !isWeekEnd;
+    // if (toDay == 'Thursday' || toDay == 'Saturday' || toDay == 'Sunday') {
+    //   isSexta = !isSexta;
+    // }
+    // if (toDay == 'Saturday' || toDay == 'Sunday') {
+    //   isWeekEnd = !isWeekEnd;
+    // }
+    if (toDay != 'Sunday' && toDay != 'Saturday') {
+      noUpdate = true;
     }
     notifyListeners();
   }
@@ -63,5 +67,15 @@ class Data extends ChangeNotifier {
     return Future.value(true);
 
     // ignore: use_build_context_synchronously
+  }
+
+  void onTimer() async {
+    List<dynamic> cardapio = [];
+    NetworkHelper get = NetworkHelper();
+
+    cardapio = await get.getData();
+    // ignore: use_build_context_synchronously
+    changeCardapio(cardapio);
+    notifyListeners();
   }
 }

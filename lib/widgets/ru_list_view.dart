@@ -12,14 +12,20 @@ class RuListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     int weekEnd = Provider.of<Data>(context).cardapioDeHoje.length;
+    bool noUpdate = Provider.of<Data>(context).noUpdate;
 
     return weekEnd >= 2
         ? const MainListView()
         : weekEnd == 1
             ? const ToDayIsSexta()
-            : const NoCardapio(
-                msg: 'Sem funcionamento aos fins de semana',
-                color: kWeekEndColor,
-              );
+            : noUpdate
+                ? const NoCardapio(
+                    msg: 'Aguardando atualização do cardápio.',
+                    color: kWeekEndColor,
+                  )
+                : const NoCardapio(
+                    msg: 'Sem funcionamento aos fins de semana',
+                    color: kWeekEndColor,
+                  );
   }
 }

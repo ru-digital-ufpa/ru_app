@@ -88,8 +88,10 @@ class RuDrawer extends StatelessWidget {
                           TextButton(
                             onPressed: () async {
                               if (await canLaunchUrl(acessoFacilRuUrl)) {
-                                await launchUrl(acessoFacilRuUrl,
-                                    mode: LaunchMode.externalApplication);
+                                await launchUrl(
+                                  acessoFacilRuUrl,
+                                  mode: LaunchMode.externalApplication,
+                                );
                               }
                               // ignore: use_build_context_synchronously
                               Navigator.pop(context, 'Sim');

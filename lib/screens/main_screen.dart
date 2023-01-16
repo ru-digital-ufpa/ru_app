@@ -1,7 +1,11 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:ru_app/constants.dart';
 import 'package:ru_app/widgets/ru_drawer.dart';
 import 'package:ru_app/widgets/ru_list_view.dart';
+import 'package:ru_app/data/ru_data.dart';
 
 class MainScreen extends StatefulWidget {
   static String id = 'main_screen';
@@ -11,6 +15,17 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
+  @override
+  void initState() {
+    super.initState();
+    Timer.periodic(
+      const Duration(minutes: 30),
+      (timer) {
+        Provider.of<Data>(context, listen: false).onTimer();
+      },
+    );
+  }
+
   List<dynamic> updateCardapioDoDia = [];
   @override
   Widget build(BuildContext context) {
