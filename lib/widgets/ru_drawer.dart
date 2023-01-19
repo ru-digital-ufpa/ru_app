@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:ru_app/constants.dart';
 import 'package:ru_app/screens/todo_cardapio_screen.dart';
+import 'package:ru_app/services/notification_service.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:ru_app/widgets/ru_drawer_list_tile.dart';
 
@@ -53,6 +55,9 @@ class RuDrawer extends StatelessWidget {
                   icon: Icons.food_bank,
                   title: 'Cardapio Completo',
                   onPress: () {
+                    Provider.of<NotificationService>(context, listen: false)
+                        .showLocalNotification(CustomNotification(
+                            id: 1, title: 'Test', body: "hello"));
                     Navigator.pushNamed(context, TodoCardapioScreen.id);
                   },
                 ),

@@ -20,4 +20,17 @@ class NetworkHelper {
       print(response.statusCode);
     }
   }
+
+  Future<void> postUserToken({token}) async {
+    Uri url = Uri.parse('');
+    try {
+      final response = await http.post(
+        url,
+        body: {'token': token},
+      );
+      print(response.statusCode);
+    } catch (e) {
+      print(e);
+    }
+  }
 }

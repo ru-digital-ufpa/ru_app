@@ -36,6 +36,7 @@ class _TodoCardapioScreenState extends State<TodoCardapioScreen> {
       ),
       body: SafeArea(
         child: RefreshIndicator(
+          color: kNavbarBackgroundColor,
           onRefresh: () async {
             await Provider.of<Data>(context, listen: false).getCardapio();
           },

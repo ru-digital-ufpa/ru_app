@@ -5,13 +5,23 @@ import 'package:ru_app/constants.dart';
 import 'package:provider/provider.dart';
 import 'package:ru_app/data/ru_data.dart';
 import 'package:ru_app/screens/todo_cardapio_screen.dart';
+import 'package:ru_app/services/notification_service.dart';
 
-void main() => runApp(
-      ChangeNotifierProvider(
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(
+    MultiProvider(
+      providers: [
+        Provider<NotificationService>(
+            create: (context) => NotificationService()),
+      ],
+      child: ChangeNotifierProvider(
         create: (_) => Data(),
         child: const MyApp(),
       ),
-    );
+    ),
+  );
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

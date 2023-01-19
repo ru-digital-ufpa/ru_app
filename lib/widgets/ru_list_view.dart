@@ -14,18 +14,24 @@ class RuListView extends StatelessWidget {
     int weekEnd = Provider.of<Data>(context).cardapioDeHoje.length;
     bool noUpdate = Provider.of<Data>(context).noUpdate;
 
-    return weekEnd >= 2
-        ? const MainListView()
-        : weekEnd == 1
-            ? const ToDayIsSexta()
-            : noUpdate
-                ? const NoCardapio(
-                    msg: 'Aguardando atualização do cardápio.',
-                    color: kWeekEndColor,
-                  )
-                : const NoCardapio(
-                    msg: 'Sem funcionamento aos fins de semana',
-                    color: kWeekEndColor,
-                  );
+    return RefreshIndicator(
+      color: kNavbarBackgroundColor,
+      onRefresh: () async {
+        await Provider.of<Data>(context, listen: false).getCardapio();
+      },
+      child: weekEnd >= 2
+          ? const MainListView()
+          : weekEnd == 1
+              ? const ToDayIsSexta()
+              : noUpdate
+                  ? const NoCardapio(
+                      msg: 'Aguardando atualização do cardápio.',
+                      color: kWeekEndColor,
+                    )
+                  : const NoCardapio(
+                      msg: 'Sem funcionamento aos fins de semana',
+                      color: kWeekEndColor,
+                    ),
+    );
   }
 }
