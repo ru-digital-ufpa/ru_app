@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "916505893813",
+    "project_id": "ru-app-af5a1",
+    "storage_bucket": "ru-app-af5a1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:916505893813:android:02b6769f52c417d5fb57fc",
+        "android_client_info": {
+          "package_name": "com.rudigital"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "916505893813-0pcprtaol1op1g959c8hgjbe1bs4091d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAb4d-EmqMoVdsEp_XtZSrgYjXufYNWDDc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "916505893813-0pcprtaol1op1g959c8hgjbe1bs4091d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
