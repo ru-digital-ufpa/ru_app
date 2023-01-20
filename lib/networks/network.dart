@@ -4,7 +4,9 @@ import 'dart:convert';
 
 class NetworkHelper {
   List<dynamic> cardapio = [];
+
   NetworkHelper();
+
   Future getData() async {
     http.Response response = await http.get(
       Uri.parse('https://prinako-ru.cyclic.app/api'),
@@ -21,8 +23,8 @@ class NetworkHelper {
     }
   }
 
-  Future<void> postUserToken({token}) async {
-    Uri url = Uri.parse('');
+  postUserToken({String? token}) async {
+    Uri url = Uri.parse('http://10.0.0.120:5500/token');
     try {
       final response = await http.post(
         url,

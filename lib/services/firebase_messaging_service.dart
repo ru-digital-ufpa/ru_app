@@ -2,11 +2,12 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 // import 'package:flutter_notifications/routes.dart';
 import 'package:ru_app/services/notification_service.dart';
+import 'package:ru_app/networks/network.dart';
 
-class FirebaseMessageingService {
+class FirebaseMessagingService {
   final NotificationService _notificationService;
 
-  FirebaseMessageingService(this._notificationService);
+  FirebaseMessagingService(this._notificationService);
 
   Future<void> initialize() async {
     await FirebaseMessaging.instance
@@ -22,6 +23,11 @@ class FirebaseMessageingService {
 
   getDeviceFirebaseToken() async {
     final token = await FirebaseMessaging.instance.getToken();
+
+    debugPrint(token);
+
+    NetworkHelper sendPost = NetworkHelper();
+    await sendPost.postUserToken(token: token);
   }
 
   _onMessage() async {
