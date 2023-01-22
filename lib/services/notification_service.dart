@@ -1,8 +1,6 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
-// import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_native_timezone/flutter_native_timezone.dart';
-// import 'package:flutter_notifications/routes.dart';
 import 'package:timezone/timezone.dart' as tz;
 import 'package:timezone/data/latest_all.dart' as tz;
 
@@ -34,7 +32,7 @@ class NotificationService {
 
   _setupAndroidDetails() {
     androidDetails = const AndroidNotificationDetails(
-      'ru_digital1',
+      'ru_digital',
       'Ru Digital Notificação',
       channelDescription: 'Este canal é para notificação!',
       importance: Importance.high,
@@ -100,6 +98,17 @@ class NotificationService {
       NotificationDetails(
         android: androidDetails,
       ),
+      payload: notification.payload,
+    );
+  }
+
+  showFirebaseNotification(CustomNotification notification,
+      NotificationDetails notificationDetails) {
+    localNotificationsPlugin.show(
+      notification.id,
+      notification.title,
+      notification.body,
+      notificationDetails,
       payload: notification.payload,
     );
   }

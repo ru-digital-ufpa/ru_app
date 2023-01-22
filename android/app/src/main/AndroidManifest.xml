@@ -1,5 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.ru_app">
+    <!-- Permissions options for the `notification` group -->
+    <!-- <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY"/> -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
     <!-- Provide required visibility configuration for API level 30 and above -->
     <queries>
     <!-- If your app checks for SMS support -->
@@ -64,4 +67,5 @@
             android:value="2" />
     </application>
     <uses-permission android:name="android.permission.INTERNET" />
+    
 </manifest>

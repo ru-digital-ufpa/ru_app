@@ -1,4 +1,3 @@
-//import 'dart:html';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
@@ -25,12 +24,14 @@ class NetworkHelper {
 
   postUserToken({String? token}) async {
     Uri url = Uri.parse('https://prinako-ru.cyclic.app/token');
+    // Uri url = Uri.parse('http://10.0.0.120:5500/token');
+
     try {
-      await http.post(
+      final res = await http.post(
         url,
         body: {'token': token},
       );
-      // print(response.statusCode);
+      // print(res.statusCode);
     } catch (e) {
       // print(e);
     }
