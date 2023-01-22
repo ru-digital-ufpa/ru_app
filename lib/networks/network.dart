@@ -19,20 +19,20 @@ class NetworkHelper {
       //print(cardapio);
       return cardapio;
     } else {
-      print(response.statusCode);
+      // print(response.statusCode);
     }
   }
 
   postUserToken({String? token}) async {
-    Uri url = Uri.parse('http://10.0.0.120:5500/token');
+    Uri url = Uri.parse('https://prinako-ru.cyclic.app/token');
     try {
-      final response = await http.post(
+      await http.post(
         url,
         body: {'token': token},
       );
-      print(response.statusCode);
+      // print(response.statusCode);
     } catch (e) {
-      print(e);
+      // print(e);
     }
   }
 }

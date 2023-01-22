@@ -116,13 +116,16 @@ class CardContainer extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(
-                        width: 1,
+                        width: 2,
                       ),
-                      Text(
-                        '$vegetariano',
-                        style: const TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w500,
+                      Flexible(
+                        child: Text(
+                          '$vegetariano',
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w500,
+                          ),
                         ),
                       ),
                     ],

@@ -1,5 +1,5 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:flutter/material.dart';
+// import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_native_timezone/flutter_native_timezone.dart';
 // import 'package:flutter_notifications/routes.dart';
@@ -34,10 +34,10 @@ class NotificationService {
 
   _setupAndroidDetails() {
     androidDetails = const AndroidNotificationDetails(
-      'lembretes_notifications_details',
-      'Lembretes',
-      channelDescription: 'Este canal é para lembretes!',
-      importance: Importance.max,
+      'ru_digital1',
+      'Ru Digital Notificação',
+      channelDescription: 'Este canal é para notificação!',
+      importance: Importance.high,
       priority: Priority.max,
       enableVibration: true,
     );
@@ -50,26 +50,28 @@ class NotificationService {
 
   Future<void> _setupTimezone() async {
     tz.initializeTimeZones();
-    final String? timeZoneName = await FlutterNativeTimezone.getLocalTimezone();
-    tz.setLocalLocation(tz.getLocation(timeZoneName!));
+    final String timeZoneName = await FlutterNativeTimezone.getLocalTimezone();
+    tz.setLocalLocation(tz.getLocation(timeZoneName));
   }
 
   _initializeNotifications() async {
-    const android = AndroidInitializationSettings('@mipmap/ic_launcher');
+    const AndroidInitializationSettings android =
+        AndroidInitializationSettings('@mipmap/ic_launcher');
     // Fazer: macOs, iOS, Linux...
+    const InitializationSettings settings = InitializationSettings(
+      android: android,
+    );
     await localNotificationsPlugin.initialize(
-      const InitializationSettings(
-        android: android,
-      ),
+      settings,
       // onSelectNotification: _onSelectNotification,
     );
   }
 
-  // _onSelectNotification(String? payload) {
-  //   if (payload != null && payload.isNotEmpty) {
-  //      Navigator.of(Routes.navigatorKey!.currentContext!).pushNamed(payload);
-  //   }
-  // }
+  _onSelectNotification(String? payload) {
+    if (payload != null && payload.isNotEmpty) {
+      //  Navigator.of(Routes.navigatorKey!.currentContext!).pushNamed(payload);
+    }
+  }
 
   showNotificationScheduled(
       CustomNotification notification, Duration duration) {

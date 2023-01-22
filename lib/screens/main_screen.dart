@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:ru_app/constants.dart';
-import 'package:ru_app/widgets/ru_drawer.dart';
+import 'package:ru_app/drawer/ru_drawer.dart';
 import 'package:ru_app/widgets/ru_list_view.dart';
 import 'package:ru_app/data/ru_data.dart';
 

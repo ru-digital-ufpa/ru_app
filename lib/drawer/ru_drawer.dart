@@ -9,7 +9,7 @@ final Uri termoUrl = Uri.parse(
 final Uri historyUrl = Uri.parse('https://saest.ufpa.br/ru/index.php/d-2');
 final Uri precosUrl = Uri.parse('https://saest.ufpa.br/ru/index.php/valores');
 final Uri acessoFacilRuUrl =
-    Uri.parse('https://sipac.ufpa.br/sipac/?modo=cçassico');
+    Uri.parse('https://sipac.ufpa.br/sipac/?modo=classico');
 
 class RuDrawer extends StatelessWidget {
   const RuDrawer({

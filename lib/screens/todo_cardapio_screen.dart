@@ -5,7 +5,8 @@ import 'package:ru_app/data/ru_data.dart';
 import 'package:ru_app/widgets/ru_divider.dart';
 import 'package:ru_app/widgets/ru_card.dart';
 import 'package:ru_app/widgets/ru_sem_cardapio.dart';
-import 'dart:async';
+// import 'package:ru_app/networks/network.dart';
+// import 'dart:async';
 
 class TodoCardapioScreen extends StatefulWidget {
   static String id = "TodoCardapioScreen";
@@ -17,6 +18,23 @@ class TodoCardapioScreen extends StatefulWidget {
 }
 
 class _TodoCardapioScreenState extends State<TodoCardapioScreen> {
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   getCardapio();
+  // }
+
+  // void getCardapio() async {
+  //   List<dynamic> cardapio = [];
+
+  //   NetworkHelper get = NetworkHelper();
+
+  //   cardapio = await get.getData();
+  //   // ignore: use_build_context_synchronously
+  //   Provider.of<Data>(context, listen: false).changeCardapio(cardapio);
+  //   // ignore: use_build_context_synchronously
+  // }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +44,7 @@ class _TodoCardapioScreenState extends State<TodoCardapioScreen> {
           color: kNavbarBackgroundColor,
         ),
         title: const Text(
-          'Cardapio Completo da Semana',
+          'Cardápio completo da semana',
           style: TextStyle(
             color: kNavbarBackgroundColor,
             fontSize: 20.0,
