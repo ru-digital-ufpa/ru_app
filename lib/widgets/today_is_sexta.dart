@@ -35,7 +35,7 @@ class ToDayIsSexta extends StatelessWidget {
             semAlmoco > 2 && isSemAlmoco != 'SEM FUNCIONAMENTO'
                 ? RuCard(
                     refeicao:
-                        '${Provider.of<Data>(context).cardapioDeHoje[index]['amoco']['refeicao']} 11:00h - 14:00h',
+                        '${Provider.of<Data>(context).cardapioDeHoje[index]['amoco']['refeicao']} 11:00 - 14:00',
                     nomeDaRefi: Provider.of<Data>(context).cardapioDeHoje[index]
                         ['amoco']['nomeDaRefei'],
                     vegetariano: Provider.of<Data>(context)
@@ -61,7 +61,7 @@ class ToDayIsSexta extends StatelessWidget {
             semJantar > 2 && isSemJantar != 'SEM FUNCIONAMENTO'
                 ? RuCard(
                     refeicao:
-                        '${Provider.of<Data>(context).cardapioDeHoje[index]['jantar']['refeicao']} 17:45h - 19:15h',
+                        '${Provider.of<Data>(context).cardapioDeHoje[index]['jantar']['refeicao']} 17:45 - 19:15',
                     nomeDaRefi: Provider.of<Data>(context).cardapioDeHoje[index]
                         ['jantar']['nomeDaRefei'],
                     vegetariano: Provider.of<Data>(context)

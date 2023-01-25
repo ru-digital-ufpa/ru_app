@@ -68,7 +68,7 @@ class CardContainer extends StatelessWidget {
         padding: const EdgeInsets.all(2.0),
         child: Card(
           elevation: 5,
-          color: refeicao == 'ALMOÇO' || refeicao == 'ALMOÇO 11:00h - 14:00h'
+          color: refeicao == 'ALMOÇO' || refeicao == 'ALMOÇO 11:00 - 14:00'
               ? kAlmocoColor
               : kJantarColor,
           shadowColor: kSecondaryColor,
