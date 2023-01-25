@@ -15,6 +15,9 @@ class MainListView extends StatelessWidget {
     return ListView.builder(
       itemCount: Provider.of<Data>(context, listen: true).cardapioDeHoje.length,
       itemBuilder: (context, index) {
+        Provider.of<Data>(context, listen: true).cardapioDeHoje.sort(
+            (item1, item2) =>
+                item1['data'].toString().compareTo(item2['data']));
         final int semAlmoco = Provider.of<Data>(context, listen: true)
             .cardapioDeHoje[index]['amoco']
             .length;

@@ -46,7 +46,7 @@ dependencies:
   permission_handler: ^10.2.0
   # firebase_remote_config: ^3.0.9
   # flutter_notification_channel: ^2.0.0
-  # firebase_analytics: ^10.1.0
+  firebase_analytics: ^10.1.0
   
 
 dev_dependencies:
