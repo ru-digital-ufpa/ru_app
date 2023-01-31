@@ -1,5 +1,7 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:flutter_notification_channel/flutter_notification_channel.dart';
+import 'package:flutter_notification_channel/notification_importance.dart';
 import 'package:ru_app/services/notification_service.dart';
 import 'package:ru_app/networks/network.dart';
 
@@ -17,13 +19,13 @@ class FirebaseMessagingService {
   );
 
   Future<void> initialize() async {
-    //   final result = await FlutterNotificationChannel.registerNotificationChannel(
-    //     description: 'for notify users',
-    //     id: 'ru_digital',
-    //     importance: NotificationImportance.IMPORTANCE_HIGH,
-    //     name: 'Ru Digital UFPA',
-    //   );
-    // print(result);
+      final result = await FlutterNotificationChannel.registerNotificationChannel(
+        description: 'for notify users',
+        id: 'ru_digital',
+        importance: NotificationImportance.IMPORTANCE_HIGH,
+        name: 'Ru Digital UFPA',
+      );
+    print(result);
 
     NotificationSettings settings =
         await FirebaseMessaging.instance.requestPermission(

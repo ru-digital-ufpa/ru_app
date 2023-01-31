@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
@@ -49,6 +51,12 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
+    Timer.periodic(
+      const Duration(minutes:30),
+          (timer) {
+        Provider.of<FirebaseMessagingService>(context, listen: false).getDeviceFirebaseToken();
+      },
+    );
     initializeFirebaseMessaging();
     checkNotifications();
   }

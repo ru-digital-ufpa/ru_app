@@ -7,8 +7,11 @@ class NetworkHelper {
   NetworkHelper();
 
   Future getData() async {
+    Uri url = Uri.parse('https://prinako-ru.cyclic.app/api');
+    // Uri url = Uri.parse('http://10.0.0.120:5500/api');
+
     http.Response response = await http.get(
-      Uri.parse('https://prinako-ru.cyclic.app/api'),
+      url,
     );
     // print(response.statusCode);
     if (response.statusCode == 200) {
@@ -23,8 +26,8 @@ class NetworkHelper {
   }
 
   postUserToken({String? token}) async {
-    // Uri url = Uri.parse('https://prinako-ru.cyclic.app/token');
-    Uri url = Uri.parse('http://10.0.0.120:5500/token');
+    Uri url = Uri.parse('https://prinako-ru.cyclic.app/token');
+    // Uri url = Uri.parse('http://10.0.0.120:5500/token');
 
     try {
       final res = await http.post(

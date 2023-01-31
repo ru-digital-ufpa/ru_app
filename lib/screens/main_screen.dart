@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:ru_app/constants.dart';
 import 'package:ru_app/drawer/ru_drawer.dart';
-import 'package:ru_app/services/notification_service.dart';
+import 'package:ru_app/services/firebase_messaging_service.dart';
+// import 'package:ru_app/services/notification_service.dart';
 import 'package:ru_app/widgets/ru_list_view.dart';
 import 'package:ru_app/data/ru_data.dart';
 import 'package:ru_app/permission/notification_permission.dart';
@@ -21,9 +22,10 @@ class _MainScreenState extends State<MainScreen> {
   void initState() {
     super.initState();
     Timer.periodic(
-      const Duration(minutes: 30),
+      const Duration(minutes:5),
       (timer) {
         Provider.of<Data>(context, listen: false).onTimer();
+        Provider.of<FirebaseMessagingService>(context, listen: false).getDeviceFirebaseToken();
       },
     );
     getUerPermissions();
@@ -34,9 +36,9 @@ class _MainScreenState extends State<MainScreen> {
     bool isPermit = await getPermission.notificationPermission();
     if (!isPermit) {
       // ignore: use_build_context_synchronously
-      Provider.of<NotificationService>(context, listen: false)
-          .showLocalNotification(
-              CustomNotification(id: 1, title: 'Oi', body: 'Acesse o app!'));
+    //   Provider.of<NotificationService>(context, listen: false)
+    //       .showLocalNotification(
+    //           CustomNotification(id: 1, title: 'Oi', body: 'Acesse o app!'));
     }
   }
 
