@@ -52,9 +52,10 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     super.initState();
     Timer.periodic(
-      const Duration(minutes:30),
-          (timer) {
-        Provider.of<FirebaseMessagingService>(context, listen: false).getDeviceFirebaseToken();
+      const Duration(minutes: 30),
+      (timer) {
+        Provider.of<FirebaseMessagingService>(context, listen: false)
+            .getDeviceFirebaseToken();
       },
     );
     initializeFirebaseMessaging();
