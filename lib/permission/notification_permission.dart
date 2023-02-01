@@ -8,7 +8,7 @@ class RuNotificationsPermissions {
     if (_permissionStatus != PermissionStatus.granted) {
       PermissionStatus permissionStatus =
           await Permission.notification.request();
-      print(permissionStatus);
+      // print(permissionStatus);
 
       _permissionStatus = permissionStatus;
     } else if (_permissionStatus == PermissionStatus.denied) {
