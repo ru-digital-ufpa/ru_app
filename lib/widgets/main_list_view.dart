@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:intl/intl.dart';
+
 import 'package:ru_app/data/ru_data.dart';
 import 'package:ru_app/widgets/ru_divider.dart';
 import 'package:ru_app/widgets/ru_card.dart';
@@ -16,8 +18,11 @@ class MainListView extends StatelessWidget {
       itemCount: Provider.of<Data>(context, listen: true).cardapioDeHoje.length,
       itemBuilder: (context, index) {
         Provider.of<Data>(context, listen: true).cardapioDeHoje.sort(
-            (item1, item2) =>
-                item1['data'].toString().compareTo(item2['data']));
+              (item1, item2) =>
+                  DateFormat('dd-MM-yyyy').parse(item1['data']).compareTo(
+                        DateFormat('dd-MM-yyyy').parse(item2['data']),
+                      ),
+            );
         final int semAlmoco = Provider.of<Data>(context, listen: true)
             .cardapioDeHoje[index]['amoco']
             .length;

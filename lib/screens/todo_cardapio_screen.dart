@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:intl/intl.dart';
+
 import 'package:ru_app/constants.dart';
 import 'package:ru_app/data/ru_data.dart';
 import 'package:ru_app/widgets/ru_divider.dart';
 import 'package:ru_app/widgets/ru_card.dart';
 import 'package:ru_app/widgets/ru_sem_cardapio.dart';
+
 // import 'package:ru_app/networks/network.dart';
 // import 'dart:async';
 
@@ -18,23 +21,6 @@ class TodoCardapioScreen extends StatefulWidget {
 }
 
 class _TodoCardapioScreenState extends State<TodoCardapioScreen> {
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   getCardapio();
-  // }
-
-  // void getCardapio() async {
-  //   List<dynamic> cardapio = [];
-
-  //   NetworkHelper get = NetworkHelper();
-
-  //   cardapio = await get.getData();
-  //   // ignore: use_build_context_synchronously
-  //   Provider.of<Data>(context, listen: false).changeCardapio(cardapio);
-  //   // ignore: use_build_context_synchronously
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,8 +48,11 @@ class _TodoCardapioScreenState extends State<TodoCardapioScreen> {
             itemCount: Provider.of<Data>(context, listen: true).cardapio.length,
             itemBuilder: (context, index) {
               Provider.of<Data>(context, listen: true).cardapio.sort(
-                  (item1, item2) =>
-                      item1['data'].toString().compareTo(item2['data']));
+                    (item1, item2) => DateFormat('dd-MM-yyyy')
+                        .parse(item1['data'])
+                        .compareTo(
+                            DateFormat('dd-MM-yyyy').parse(item2['data'])),
+                  );
               final int semAlmoco = Provider.of<Data>(context, listen: true)
                   .cardapio[index]['amoco']
                   .length;
