@@ -1,0 +1,4 @@
+workflows:
+    sample-workflow:
+        name: Ru Digital UFPA iOS
+        max_build_duration: 120
