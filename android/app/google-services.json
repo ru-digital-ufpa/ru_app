@@ -29,6 +29,13 @@
             {
               "client_id": "916505893813-0pcprtaol1op1g959c8hgjbe1bs4091d.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "916505893813-87805nfdeva37240lkr7btjt9po50t4j.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.ruDigitalApp"
+              }
             }
           ]
         }

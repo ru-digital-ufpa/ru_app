@@ -1,12 +1,15 @@
 import 'dart:async';
 
+import 'package:flutter/material.dart';
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:flutter/material.dart';
+import 'firebase_options.dart';
+import 'package:provider/provider.dart';
+
 import 'package:ru_app/screens/loading_screen.dart';
 import 'package:ru_app/screens/main_screen.dart';
 import 'package:ru_app/constants.dart';
-import 'package:provider/provider.dart';
 import 'package:ru_app/data/ru_data.dart';
 import 'package:ru_app/screens/todo_cardapio_screen.dart';
 import 'package:ru_app/services/firebase_messaging_service.dart';
@@ -20,7 +23,7 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   // FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
 
   runApp(
@@ -52,9 +55,10 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     super.initState();
     Timer.periodic(
-      const Duration(minutes:30),
-          (timer) {
-        Provider.of<FirebaseMessagingService>(context, listen: false).getDeviceFirebaseToken();
+      const Duration(minutes: 30),
+      (timer) {
+        Provider.of<FirebaseMessagingService>(context, listen: false)
+            .getDeviceFirebaseToken();
       },
     );
     initializeFirebaseMessaging();
