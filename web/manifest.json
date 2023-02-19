@@ -1,11 +1,11 @@
 {
-    "name": "ru_app",
-    "short_name": "ru_app",
+    "name": "RU Digital UFPA",
+    "short_name": "RU Digital UFPA",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "Informativo do cardápio semanal e diário do RU UFPA.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
