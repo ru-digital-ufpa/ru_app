@@ -5,8 +5,10 @@ import 'package:ru_app/networks/network.dart';
 class Data extends ChangeNotifier {
   List<dynamic> cardapio = [];
   List<dynamic> cardapioDeHoje = [];
+
+  final String toDay = DateFormat('EEEE').format(DateTime.now());
   // late bool isWeekEnd = false;
-  // late bool isSexta = false;
+  late bool isSexta = false;
   late bool noUpdate = false;
 
   void changeCardapio(List<dynamic> newCardapio) {
@@ -27,26 +29,26 @@ class Data extends ChangeNotifier {
         ),
       ),
     );
-
-    for (int i = 0; i < newCardapioDeHoje.length; ++i) {
-      if (hoje == newCardapioDeHoje[i]['data'].toString()) {
-        getCardapioDeHoje.add(newCardapioDeHoje[i]);
-      }
-      if (amanha == newCardapioDeHoje[i]['data'].toString()) {
-        getCardapioDeHoje.add(newCardapioDeHoje[i]);
+    if (toDay != 'Sunday' && toDay != 'Saturday') {
+      for (int i = 0; i < newCardapioDeHoje.length; ++i) {
+        if (hoje == newCardapioDeHoje[i]['data'].toString()) {
+          getCardapioDeHoje.add(newCardapioDeHoje[i]);
+        }
+        if (amanha == newCardapioDeHoje[i]['data'].toString()) {
+          getCardapioDeHoje.add(newCardapioDeHoje[i]);
+        }
       }
     }
+
     cardapioDeHoje = getCardapioDeHoje;
 
     notifyListeners();
   }
 
   void getDayOfWeekEnd() {
-    final String toDay = DateFormat('EEEE').format(DateTime.now());
-
-    // if (toDay == 'Thursday' || toDay == 'Saturday' || toDay == 'Sunday') {
-    //   isSexta = !isSexta;
-    // }
+    if (toDay == 'Friday') {
+      isSexta = !isSexta;
+    }
     // if (toDay == 'Saturday' || toDay == 'Sunday') {
     //   isWeekEnd = !isWeekEnd;
     // }

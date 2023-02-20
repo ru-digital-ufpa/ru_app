@@ -13,6 +13,7 @@ class RuListView extends StatelessWidget {
   Widget build(BuildContext context) {
     int weekEnd = Provider.of<Data>(context).cardapioDeHoje.length;
     bool noUpdate = Provider.of<Data>(context).noUpdate;
+    bool isSexta = Provider.of<Data>(context).isSexta;
 
     return RefreshIndicator(
       color: kNavbarBackgroundColor,
@@ -21,7 +22,7 @@ class RuListView extends StatelessWidget {
       },
       child: weekEnd >= 2
           ? const MainListView()
-          : weekEnd == 1
+          : isSexta
               ? const ToDayIsSexta()
               : noUpdate
                   ? const NoCardapio(
