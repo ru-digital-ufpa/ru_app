@@ -22,10 +22,11 @@ class _MainScreenState extends State<MainScreen> {
   void initState() {
     super.initState();
     Timer.periodic(
-      const Duration(minutes:5),
+      const Duration(seconds: 10),
       (timer) {
         Provider.of<Data>(context, listen: false).onTimer();
-        Provider.of<FirebaseMessagingService>(context, listen: false).getDeviceFirebaseToken();
+        Provider.of<FirebaseMessagingService>(context, listen: false)
+            .getDeviceFirebaseToken();
       },
     );
     getUerPermissions();
@@ -36,9 +37,9 @@ class _MainScreenState extends State<MainScreen> {
     bool isPermit = await getPermission.notificationPermission();
     if (!isPermit) {
       // ignore: use_build_context_synchronously
-    //   Provider.of<NotificationService>(context, listen: false)
-    //       .showLocalNotification(
-    //           CustomNotification(id: 1, title: 'Oi', body: 'Acesse o app!'));
+      //   Provider.of<NotificationService>(context, listen: false)
+      //       .showLocalNotification(
+      //           CustomNotification(id: 1, title: 'Oi', body: 'Acesse o app!'));
     }
   }
 

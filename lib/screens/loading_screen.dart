@@ -8,6 +8,8 @@ import 'package:ru_app/data/ru_data.dart';
 class LoadingScreen extends StatefulWidget {
   static String id = 'loading_screen';
 
+  const LoadingScreen({super.key});
+
   @override
   State<LoadingScreen> createState() => _LoadingScreenState();
 }

@@ -3,8 +3,8 @@
     "short_name": "RU Digital UFPA",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
+    "background_color": "#FFCC1D",
+    "theme_color": "#FFCC1D",
     "description": "Informativo do cardápio semanal e diário do RU UFPA.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
@@ -16,7 +16,7 @@
         },
         {
             "src": "icons/Icon-512.png",
-            "sizes": "512x512",
+            "sizes": "432x432",
             "type": "image/png"
         },
         {
@@ -27,7 +27,7 @@
         },
         {
             "src": "icons/Icon-maskable-512.png",
-            "sizes": "512x512",
+            "sizes": "432x432",
             "type": "image/png",
             "purpose": "maskable"
         }
