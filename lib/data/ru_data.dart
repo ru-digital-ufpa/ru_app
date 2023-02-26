@@ -47,13 +47,17 @@ class Data extends ChangeNotifier {
 
   void getDayOfWeekEnd() {
     if (toDay == 'Friday') {
-      isSexta = !isSexta;
+      isSexta = true;
+    } else {
+      isSexta = false;
     }
     // if (toDay == 'Saturday' || toDay == 'Sunday') {
     //   isWeekEnd = !isWeekEnd;
     // }
-    if (toDay != 'Sunday' && toDay != 'Saturday') {
+    if (toDay != 'Sunday' && toDay != 'Saturday' && cardapioDeHoje.isEmpty) {
       noUpdate = true;
+    } else {
+      noUpdate = false;
     }
     notifyListeners();
   }
@@ -72,12 +76,13 @@ class Data extends ChangeNotifier {
   }
 
   void onTimer() async {
-    List<dynamic> cardapio = [];
+    List<dynamic> cardapioUp = [];
     NetworkHelper get = NetworkHelper();
 
-    cardapio = await get.getData();
+    cardapioUp = await get.getData();
     // ignore: use_build_context_synchronously
-    changeCardapio(cardapio);
+
+    changeCardapio(cardapioUp);
     notifyListeners();
   }
 }

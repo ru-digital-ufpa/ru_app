@@ -53,7 +53,7 @@ class ToDayIsSexta extends StatelessWidget {
                   )
                 : SemCardapio(
                     refeicao:
-                        '${Provider.of<Data>(context).cardapioDeHoje[index]['amoco']['refeicao']}  ',
+                        '${Provider.of<Data>(context).cardapioDeHoje[index]['amoco']['refeicao']}  11:00 - 14:00',
                     nomeDaRefi: Provider.of<Data>(context).cardapioDeHoje[index]
                         ['amoco']['nomeDaRefei'],
                   ),
