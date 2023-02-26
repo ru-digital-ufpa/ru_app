@@ -86,7 +86,7 @@ class _MyAppState extends State<MyApp> {
       color: kPrimaryColor,
       initialRoute: LoadingScreen.id,
       routes: {
-        LoadingScreen.id: (context) => LoadingScreen(),
+        LoadingScreen.id: (context) => const LoadingScreen(),
         MainScreen.id: (context) => MainScreen(),
         TodoCardapioScreen.id: (context) => const TodoCardapioScreen(),
       },
