@@ -7,10 +7,18 @@ import 'package:ru_app/widgets/ru_divider.dart';
 import 'package:ru_app/widgets/ru_card.dart';
 import 'package:ru_app/widgets/ru_sem_cardapio.dart';
 
-class MainListView extends StatelessWidget {
+class MainListView extends StatefulWidget {
   const MainListView({
     Key? key,
   }) : super(key: key);
+
+  @override
+  State<MainListView> createState() => _MainListViewState();
+}
+
+class _MainListViewState extends State<MainListView> {
+  final myDateFormat = DateFormat('dd-MM-yyyy');
+  // final dataDeHoje = myDateFormat.format(DateTime.now());
 
   @override
   Widget build(BuildContext context) {
@@ -18,21 +26,13 @@ class MainListView extends StatelessWidget {
       itemCount: Provider.of<Data>(context, listen: true).cardapioDeHoje.length,
       itemBuilder: (context, index) {
         Provider.of<Data>(context, listen: true).cardapioDeHoje.sort(
-              (item1, item2) =>
-                  DateFormat('dd-MM-yyyy').parse(item1['data']).compareTo(
-                        DateFormat('dd-MM-yyyy').parse(item2['data']),
-                      ),
+              (item1, item2) => myDateFormat.parse(item1['data']).compareTo(
+                    myDateFormat.parse(item2['data']),
+                  ),
             );
         final int semAlmoco = Provider.of<Data>(context, listen: true)
             .cardapioDeHoje[index]['amoco']
             .length;
-        // final String isSemAlmoco = Provider.of<Data>(context, listen: true)
-        //     .cardapioDeHoje[index]['amoco']['nomeDaRefei']
-        //     .toString();
-
-        // final String isSemJantar = Provider.of<Data>(context, listen: true)
-        //     .cardapioDeHoje[index]['jantar']['nomeDaRefei']
-        //     .toString();
 
         final int semJantar = Provider.of<Data>(context, listen: true)
             .cardapioDeHoje[index]['jantar']

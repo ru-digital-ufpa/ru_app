@@ -22,7 +22,7 @@ class _MainScreenState extends State<MainScreen> {
   void initState() {
     super.initState();
     Timer.periodic(
-      const Duration(seconds: 10),
+      const Duration(minutes: 3),
       (timer) {
         Provider.of<Data>(context, listen: false).onTimer();
         Provider.of<FirebaseMessagingService>(context, listen: false)

@@ -7,7 +7,9 @@ class Data extends ChangeNotifier {
   List<dynamic> cardapioDeHoje = [];
 
   final String toDay = DateFormat('EEEE').format(DateTime.now());
-  // late bool isWeekEnd = false;
+  final dateNow = DateFormat('dd-MM-yyyy');
+
+  late bool isWeekEnd = false;
   late bool isSexta = false;
   late bool noUpdate = false;
 
@@ -21,8 +23,8 @@ class Data extends ChangeNotifier {
   void changeCardapioDeHoje(List<dynamic> newCardapioDeHoje) {
     List<dynamic> getCardapioDeHoje = [];
 
-    final String hoje = DateFormat('dd-MM-yyyy').format(DateTime.now());
-    final String amanha = DateFormat('dd-MM-yyyy').format(
+    final String hoje = dateNow.format(DateTime.now());
+    final String amanha = dateNow.format(
       DateTime.now().add(
         const Duration(
           days: 1,
@@ -51,9 +53,13 @@ class Data extends ChangeNotifier {
     } else {
       isSexta = false;
     }
-    // if (toDay == 'Saturday' || toDay == 'Sunday') {
-    //   isWeekEnd = !isWeekEnd;
-    // }
+
+    if (toDay == 'Saturday' || toDay == 'Sunday') {
+      isWeekEnd = true;
+    } else {
+      isWeekEnd = false;
+    }
+
     if (toDay != 'Sunday' && toDay != 'Saturday' && cardapioDeHoje.isEmpty) {
       noUpdate = true;
     } else {

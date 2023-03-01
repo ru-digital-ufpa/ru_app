@@ -7,8 +7,8 @@ class NetworkHelper {
   NetworkHelper();
 
   Future getData() async {
-    // Uri url = Uri.parse('https://prinako-ru.cyclic.app/api');
-    Uri url = Uri.parse('http://ru.server.net/api');
+    Uri url = Uri.parse('https://prinako-ru.cyclic.app/api');
+    // Uri url = Uri.parse('http://ru.server.net/api');
 
     http.Response response = await http.get(
       url,
