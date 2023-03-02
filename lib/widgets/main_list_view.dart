@@ -38,7 +38,7 @@ class _MainListViewState extends State<MainListView> {
             .cardapioDeHoje[index]['jantar']
             .length;
         return Column(
-          key: Provider.of<Data>(context).cardapio[index]['id'],
+          key: ObjectKey(Provider.of<Data>(context).cardapio[index]['_id']),
           children: [
             index == 0
                 ? const RuDivider(name: 'Hoje')

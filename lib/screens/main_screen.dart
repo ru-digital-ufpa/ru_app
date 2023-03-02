@@ -30,7 +30,6 @@ class _MainScreenState extends State<MainScreen> {
       },
     );
     getUerPermissions();
-    // getUerPermissions();
   }
 
   getUerPermissions() async {

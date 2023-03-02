@@ -70,6 +70,8 @@ class _TodoCardapioScreenState extends State<TodoCardapioScreen> {
               return Padding(
                 padding: const EdgeInsets.only(bottom: 8.0),
                 child: Column(
+                  key: ObjectKey(
+                      Provider.of<Data>(context).cardapio[index]['_id']),
                   children: [
                     RuDivider(
                       key: Provider.of<Data>(context).cardapio[index]['id'],
