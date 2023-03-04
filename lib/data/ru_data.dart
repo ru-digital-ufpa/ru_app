@@ -10,6 +10,7 @@ class Data extends ChangeNotifier {
   final dateNow = DateFormat('dd-MM-yyyy');
 
   late bool isWeekEnd = false;
+  late bool isNotWeekEnd = true;
   late bool isSexta = false;
   late bool noUpdate = false;
 
@@ -48,6 +49,12 @@ class Data extends ChangeNotifier {
   }
 
   void getDayOfWeekEnd() {
+    if (toDay == 'Sunday' || toDay == 'Saturday' || toDay == 'Friday') {
+      isNotWeekEnd = false;
+    } else {
+      isNotWeekEnd = true;
+    }
+    // to contro the cardapio on fridays
     if (toDay == 'Friday') {
       isSexta = true;
     } else {
@@ -55,6 +62,7 @@ class Data extends ChangeNotifier {
     }
 
     if (toDay == 'Saturday' || toDay == 'Sunday') {
+      debugPrint(toDay);
       isWeekEnd = true;
     } else {
       isWeekEnd = false;
@@ -65,6 +73,7 @@ class Data extends ChangeNotifier {
     } else {
       noUpdate = false;
     }
+
     notifyListeners();
   }
 
