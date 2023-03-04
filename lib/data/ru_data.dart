@@ -62,7 +62,6 @@ class Data extends ChangeNotifier {
     }
 
     if (toDay == 'Saturday' || toDay == 'Sunday') {
-      debugPrint(toDay);
       isWeekEnd = true;
     } else {
       isWeekEnd = false;
