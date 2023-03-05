@@ -46,6 +46,8 @@ dependencies:
   permission_handler: ^10.2.0
   # firebase_remote_config: ^3.0.9
   flutter_notification_channel: ^2.0.0
+  carousel_slider: ^4.2.1
+  animated_text_kit: ^4.2.2
   # firebase_analytics: ^10.1.0
   
 
