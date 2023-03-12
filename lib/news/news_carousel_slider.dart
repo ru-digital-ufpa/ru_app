@@ -1,6 +1,9 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:provider/provider.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 import 'package:ru_app/data/ru_data.dart';
 
@@ -39,9 +42,9 @@ class NewsCarouselSlider extends StatelessWidget {
                 child: SizedBox(
                   width: MediaQuery.of(context).size.width,
                   child: isImage
-                      ? Image.network(
-                          listOfNoticias['imageUrl'],
-                          fit: BoxFit.fitWidth,
+                      ? CachedNetworkImage(
+                          imageUrl: listOfNoticias['imageUrl'],
+                          fit: BoxFit.cover,
                         )
                       : Column(
                           children: [

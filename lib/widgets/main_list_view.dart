@@ -31,10 +31,10 @@ class MainListView extends StatelessWidget {
                     myDateFormat.parse(item2['data']),
                   ),
             );
-
             //retuing view
             return BuildNewCardapio(
               index: index,
+              // cardapioSorted: cardapioSorted,
             );
           },
         )
@@ -45,14 +45,20 @@ class MainListView extends StatelessWidget {
 
 class BuildNewCardapio extends StatelessWidget {
   final int index;
+  // final List cardapioSorted;
   const BuildNewCardapio({
     super.key,
     required this.index,
+    // required this.cardapioSorted,
   });
 
   @override
   Widget build(BuildContext context) {
-    final dataDeHoje = DateFormat('dd-MM-yyyy').format(DateTime.now());
+    final dataDeHoje = DateFormat('dd-MM-yyyy').format(
+      DateTime.now().subtract(
+        Duration(days: 2),
+      ),
+    );
     final cardapio = Provider.of<Data>(context, listen: true).cardapioDeHoje;
 
     bool isTemCardapioDeHpje = dataDeHoje == cardapio[index]['data'].toString();
@@ -113,7 +119,7 @@ class BuildNewCardapio extends StatelessWidget {
               )
             : SemCardapio(
                 refeicao:
-                    '${Provider.of<Data>(context, listen: true).cardapioDeHoje[0]['jantar']['refeicao']} 17:45 - 19:15',
+                    '${Provider.of<Data>(context, listen: true).cardapioDeHoje[index]['jantar']['refeicao']} 17:45 - 19:15',
                 nomeDaRefi: Provider.of<Data>(context, listen: true)
                     .cardapioDeHoje[0]['jantar']['nomeDaRefei'],
               ),
