@@ -11,6 +11,8 @@ import 'package:ru_app/permission/notification_permission.dart';
 
 class MainScreen extends StatefulWidget {
   static String id = 'main_screen';
+
+  const MainScreen({super.key});
   @override
   State<MainScreen> createState() => _MainScreenState();
 }

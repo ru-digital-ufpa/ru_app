@@ -54,11 +54,7 @@ class BuildNewCardapio extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final dataDeHoje = DateFormat('dd-MM-yyyy').format(
-      DateTime.now().subtract(
-        Duration(days: 2),
-      ),
-    );
+    final dataDeHoje = DateFormat('dd-MM-yyyy').format(DateTime.now());
     final cardapio = Provider.of<Data>(context, listen: true).cardapioDeHoje;
 
     bool isTemCardapioDeHpje = dataDeHoje == cardapio[index]['data'].toString();

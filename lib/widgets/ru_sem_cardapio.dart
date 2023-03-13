@@ -5,7 +5,8 @@ class SemCardapio extends StatelessWidget {
   final String refeicao;
   final String nomeDaRefi;
 
-  SemCardapio({
+  const SemCardapio({
+    super.key,
     required this.nomeDaRefi,
     required this.refeicao,
   });
