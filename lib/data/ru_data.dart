@@ -51,7 +51,7 @@ class Data extends ChangeNotifier {
       'msg':
           'Este aplicativo é um projeto de um aluno da Universidade Federal do Pará - UFPA, portanto não é oficial da Superintendência de Assistência Estudantil – SAEST/UFPA.',
       'isImage': false,
-      'textColor': 0xFFF92E6E6
+      'textColor': 0xFFFAB57A
     },
   ];
 
