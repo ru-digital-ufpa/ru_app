@@ -54,7 +54,7 @@ class _MyAppState extends State<MyApp> {
       initialRoute: LoadingScreen.id,
       routes: {
         LoadingScreen.id: (context) => const LoadingScreen(),
-        MainScreen.id: (context) => MainScreen(),
+        MainScreen.id: (context) => const MainScreen(),
         TodoCardapioScreen.id: (context) => const TodoCardapioScreen(),
       },
     );

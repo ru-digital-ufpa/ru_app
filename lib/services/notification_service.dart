@@ -65,11 +65,11 @@ class NotificationService {
     );
   }
 
-  _onSelectNotification(String? payload) {
-    if (payload != null && payload.isNotEmpty) {
-      //  Navigator.of(Routes.navigatorKey!.currentContext!).pushNamed(payload);
-    }
-  }
+  // _onSelectNotification(String? payload) {
+  //   if (payload != null && payload.isNotEmpty) {
+  //     //  Navigator.of(Routes.navigatorKey!.currentContext!).pushNamed(payload);
+  //   }
+  // }
 
   showNotificationScheduled(
       CustomNotification notification, Duration duration) {

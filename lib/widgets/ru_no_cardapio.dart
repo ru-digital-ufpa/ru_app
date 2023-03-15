@@ -1,3 +1,4 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:ru_app/constants.dart';
 
@@ -31,13 +32,26 @@ class NoCardapio extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(10.0),
             child: Center(
-              child: Text(
-                msg,
-                textAlign: TextAlign.center,
-                style: const TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w500,
-                ),
+              child: AnimatedTextKit(
+                repeatForever: true,
+                pause: const Duration(milliseconds: 5000),
+                animatedTexts: [
+                  TypewriterAnimatedText(
+                    msg,
+                    textStyle: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ],
+                // child: Text(
+
+                //   textAlign: TextAlign.center,
+                //   style: const TextStyle(
+                //     fontSize: 20,
+                //     fontWeight: FontWeight.w500,
+                //   ),
+                // ),
               ),
             ),
           ),

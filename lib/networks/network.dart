@@ -30,7 +30,7 @@ class NetworkHelper {
     // Uri url = Uri.parse('http://ru.server.net/token');
 
     try {
-      final res = await http.post(
+      await http.post(
         url,
         body: {'token': token},
       );

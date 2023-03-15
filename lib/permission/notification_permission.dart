@@ -4,14 +4,14 @@ class RuNotificationsPermissions {
   Future<bool> notificationPermission() async {
     bool result = false;
     //To verifier se user have permit notifications
-    PermissionStatus _permissionStatus = await Permission.notification.status;
-    if (_permissionStatus != PermissionStatus.granted) {
+    PermissionStatus permissionStatus0 = await Permission.notification.status;
+    if (permissionStatus0 != PermissionStatus.granted) {
       PermissionStatus permissionStatus =
           await Permission.notification.request();
       // print(permissionStatus);
 
-      _permissionStatus = permissionStatus;
-    } else if (_permissionStatus == PermissionStatus.denied) {
+      permissionStatus0 = permissionStatus;
+    } else if (permissionStatus0 == PermissionStatus.denied) {
       result = false;
     } else {
       result = true;

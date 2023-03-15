@@ -19,13 +19,14 @@ class FirebaseMessagingService {
   );
 
   Future<void> initialize() async {
-      final result = await FlutterNotificationChannel.registerNotificationChannel(
-        description: 'for notify users',
-        id: 'ru_digital',
-        importance: NotificationImportance.IMPORTANCE_HIGH,
-        name: 'Ru Digital UFPA',
-      );
-    print(result);
+    // final result =
+    await FlutterNotificationChannel.registerNotificationChannel(
+      description: 'for notify users',
+      id: 'ru_digital',
+      importance: NotificationImportance.IMPORTANCE_HIGH,
+      name: 'Ru Digital UFPA',
+    );
+    // print(result);
 
     NotificationSettings settings =
         await FirebaseMessaging.instance.requestPermission(

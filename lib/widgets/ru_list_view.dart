@@ -6,6 +6,8 @@ import 'package:ru_app/widgets/ru_no_cardapio.dart';
 import 'package:ru_app/widgets/main_list_view.dart';
 import 'package:ru_app/widgets/today_is_sexta.dart';
 
+import '../news/news_carousel_slider.dart';
+
 class RuListView extends StatelessWidget {
   const RuListView({super.key});
 
@@ -25,18 +27,36 @@ class RuListView extends StatelessWidget {
       },
       child: isNotWeekEnd && cardapioDeHoje.isNotEmpty
           ? const MainListView()
+          // se for Sexta feira
           : isSexta
               ? const ToDayIsSexta()
               : noUpdate
-                  ? const NoCardapio(
-                      msg: 'Aguardando atualização do cardápio.',
-                      color: kWeekEndColor,
+                  //esparando por atualização do cardapio
+                  ? Column(
+                      children: const <Widget>[
+                        NewsCarouselSlider(),
+                        Expanded(
+                          child: NoCardapio(
+                            msg: 'Aguardando atualização do cardápio...',
+                            color: kWeekEndColor,
+                          ),
+                        ),
+                      ],
                     )
+                  // fins de semanas
                   : weekEnd
-                      ? const NoCardapio(
-                          msg: 'Sem funcionamento aos fins de semana',
-                          color: kWeekEndColor,
+                      ? Column(
+                          children: const <Widget>[
+                            NewsCarouselSlider(),
+                            Expanded(
+                              child: NoCardapio(
+                                msg: 'Sem funcionamento aos fins de semana',
+                                color: kWeekEndColor,
+                              ),
+                            ),
+                          ],
                         )
+                      // não deveria chegar até aqui se for aconteceu algo.
                       : ListView(),
     );
   }
