@@ -54,5 +54,7 @@
         "Universidade",
         "vegetariano",
         "você"
-    ]
+    ],
+    "editor.fontSize": 18,
+    "editor.tabSize": 5
 }
