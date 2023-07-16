@@ -5,12 +5,14 @@ class RuDrawerListTile extends StatelessWidget {
   final String title;
   final VoidCallback onPress;
   final Color? iconColor;
+  final double fontSize;
 
   const RuDrawerListTile({
     super.key,
     required this.icon,
     required this.title,
     required this.onPress,
+    required this.fontSize,
     this.iconColor,
   });
 
@@ -27,8 +29,8 @@ class RuDrawerListTile extends StatelessWidget {
         ),
         title: Text(
           title,
-          style: const TextStyle(
-            fontSize: 18,
+          style: TextStyle(
+            fontSize: fontSize,
           ),
         ),
       ),

@@ -50,6 +50,7 @@ class RuDrawer extends StatelessWidget {
               padding: EdgeInsets.zero,
               children: <Widget>[
                 RuDrawerListTile(
+                  fontSize: 18,
                   iconColor: kCardapioIconColor,
                   icon: Icons.food_bank,
                   title: 'Cardápio completo',
@@ -58,6 +59,7 @@ class RuDrawer extends StatelessWidget {
                   },
                 ),
                 RuDrawerListTile(
+                  fontSize: 18,
                   icon: Icons.price_change,
                   iconColor: kPrecoIconColor,
                   title: 'Preço do bandejão',
@@ -68,6 +70,7 @@ class RuDrawer extends StatelessWidget {
                   }),
                 ),
                 RuDrawerListTile(
+                  fontSize: 18,
                   icon: Icons.payment,
                   iconColor: kCartaoColor,
                   title: 'Recarregar seu cartão',
@@ -108,6 +111,7 @@ class RuDrawer extends StatelessWidget {
                   }),
                 ),
                 RuDrawerListTile(
+                  fontSize: 18,
                   icon: Icons.history_edu,
                   iconColor: kHistoricoColor,
                   title: 'Histórico do RU',
@@ -126,7 +130,7 @@ class RuDrawer extends StatelessWidget {
           // ),
           Flexible(
             fit: FlexFit.tight,
-            flex: 2,
+            flex: 3,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: <Widget>[
@@ -135,6 +139,7 @@ class RuDrawer extends StatelessWidget {
                   indent: 10,
                 ),
                 RuDrawerListTile(
+                  fontSize: 16,
                   icon: Icons.group,
                   iconColor: kTermoColor,
                   title: 'Termo de uso e privacidade',
@@ -143,38 +148,6 @@ class RuDrawer extends StatelessWidget {
                       await launchUrl(termoUrl);
                     }
                   },
-                ),
-                const SizedBox(
-                  child: Card(
-                    margin: EdgeInsets.only(
-                      left: 5,
-                      right: 5,
-                      bottom: 5,
-                    ),
-                    elevation: 5,
-                    color: kInfoTextColor,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(10),
-                      ),
-                    ),
-                    child: Padding(
-                      padding: EdgeInsets.only(
-                        left: 10,
-                        right: 10,
-                        top: 15,
-                        bottom: 15,
-                      ),
-                      child: Text(
-                        'Este aplicativo é um projeto de um aluno da Universidade Federal do Pará - UFPA, portanto não é oficial da Superintendência de Assistência Estudantil – SAEST/UFPA.',
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w400,
-                        ),
-                        textAlign: TextAlign.justify,
-                      ),
-                    ),
-                  ),
                 ),
               ],
             ),

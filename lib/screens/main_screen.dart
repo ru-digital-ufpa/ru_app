@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:ru_app/constants.dart';
 import 'package:ru_app/drawer/ru_drawer.dart';
-import 'package:ru_app/services/firebase_messaging_service.dart';
+// import 'package:ru_app/services/firebase_messaging_service.dart';
 // import 'package:ru_app/services/notification_service.dart';
 import 'package:ru_app/widgets/ru_list_view.dart';
 import 'package:ru_app/data/ru_data.dart';
@@ -24,11 +24,12 @@ class _MainScreenState extends State<MainScreen> {
   void initState() {
     super.initState();
     Timer.periodic(
-      const Duration(minutes: 3),
+      const Duration(minutes: 15),
       (timer) {
         Provider.of<Data>(context, listen: false).onTimer();
-        Provider.of<FirebaseMessagingService>(context, listen: false)
-            .getDeviceFirebaseToken();
+        // Provider.of<FirebaseMessagingService>(context, listen: false)
+        //     .getDeviceFirebaseToken();
+        Provider.of<Data>(context, listen: false).getNewsFromServer();
       },
     );
     getUerPermissions();
