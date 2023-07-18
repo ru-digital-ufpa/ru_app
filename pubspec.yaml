@@ -38,18 +38,16 @@ dependencies:
   http: ^1.1.0
   url_launcher: ^6.1.7
   flutter_local_notifications: ^15.1.0+1
-  # firebase_messaging: ^14.3.0
   timezone: ^0.9.1
   flutter_native_timezone: ^2.0.0
-  firebase_core: ^2.8.0
+  #firebase_core: ^2.8.0'
   permission_handler: ^10.2.0
-  # firebase_remote_config: ^3.0.9
   flutter_notification_channel: ^2.0.0
   carousel_slider: ^4.2.1
   animated_text_kit: ^4.2.2
   cached_network_image: ^3.2.3
   firebase_messaging: ^14.6.5
-  # firebase_analytics: ^10.1.0
+  firebase_core: ^2.15.0
   
 
 dev_dependencies:
