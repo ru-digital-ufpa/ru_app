@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ru_app/constants.dart';
+import 'package:ru_app/screens/historico_do_ru.dart';
+import 'package:ru_app/screens/prices.dart';
 import 'package:ru_app/screens/todo_cardapio_screen.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:ru_app/drawer/ru_drawer_list_tile.dart';
@@ -37,7 +39,7 @@ class RuDrawer extends StatelessWidget {
                 child: Text(
                   'RU DIGITAL',
                   style: TextStyle(
-                    color: kNavbarBackgroundColor,
+                    color: kSecondaryColor,
                     fontSize: 24,
                   ),
                 ),
@@ -53,7 +55,7 @@ class RuDrawer extends StatelessWidget {
                   fontSize: 18,
                   iconColor: kCardapioIconColor,
                   icon: Icons.food_bank,
-                  title: 'Cardápio completo',
+                  title: 'Cardápio Completo',
                   onPress: () {
                     Navigator.pushNamed(context, TodoCardapioScreen.id);
                   },
@@ -62,18 +64,20 @@ class RuDrawer extends StatelessWidget {
                   fontSize: 18,
                   icon: Icons.price_change,
                   iconColor: kPrecoIconColor,
-                  title: 'Preço do bandejão',
-                  onPress: (() async {
-                    if (await canLaunchUrl(precosUrl)) {
-                      await launchUrl(precosUrl);
-                    }
-                  }),
+                  title: 'Preço do Bandejão',
+                  onPress: () {
+                    Navigator.pushNamed(context, Prices.id);
+                    //() async {
+                    //   if (await canLaunchUrl(precosUrl)) {
+                    //     await launchUrl(precosUrl);
+                    //   }
+                  },
                 ),
                 RuDrawerListTile(
                   fontSize: 18,
                   icon: Icons.payment,
                   iconColor: kCartaoColor,
-                  title: 'Recarregar seu cartão',
+                  title: 'Recarregar seu Cartão',
                   onPress: (() async {
                     showDialog<String>(
                       context: context,
@@ -115,11 +119,13 @@ class RuDrawer extends StatelessWidget {
                   icon: Icons.history_edu,
                   iconColor: kHistoricoColor,
                   title: 'Histórico do RU',
-                  onPress: (() async {
-                    if (await canLaunchUrl(historyUrl)) {
-                      await launchUrl(historyUrl);
-                    }
-                  }),
+                  onPress: () {
+                    Navigator.pushNamed(context, HistoricoDoRu.id);
+                    // () async {
+                    //   if (await canLaunchUrl(historyUrl)) {
+                    //     await launchUrl(historyUrl);
+                    //   }
+                  },
                 ),
               ],
             ),
@@ -142,7 +148,7 @@ class RuDrawer extends StatelessWidget {
                   fontSize: 16,
                   icon: Icons.group,
                   iconColor: kTermoColor,
-                  title: 'Termo de uso e privacidade',
+                  title: 'Termo de uso e Privacidade',
                   onPress: () async {
                     if (await canLaunchUrl(termoUrl)) {
                       await launchUrl(termoUrl);

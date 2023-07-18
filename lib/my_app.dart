@@ -9,6 +9,8 @@ import 'package:ru_app/constants.dart';
 import 'package:ru_app/screens/todo_cardapio_screen.dart';
 import 'package:ru_app/services/firebase_messaging_service.dart';
 import 'package:ru_app/services/notification_service.dart';
+import 'package:ru_app/screens/historico_do_ru.dart';
+import 'package:ru_app/screens/prices.dart';
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
@@ -56,6 +58,8 @@ class _MyAppState extends State<MyApp> {
         LoadingScreen.id: (context) => const LoadingScreen(),
         MainScreen.id: (context) => const MainScreen(),
         TodoCardapioScreen.id: (context) => const TodoCardapioScreen(),
+        Prices.id: (context) => const Prices(),
+        HistoricoDoRu.id: (context) => const HistoricoDoRu(),
       },
     );
   }

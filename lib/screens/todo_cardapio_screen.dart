@@ -27,20 +27,20 @@ class _TodoCardapioScreenState extends State<TodoCardapioScreen> {
       appBar: AppBar(
         backgroundColor: kPrimaryColor,
         iconTheme: const IconThemeData(
-          color: kNavbarBackgroundColor,
+          color: kSecondaryColor,
         ),
         title: const Text(
-          'Cardápio completo da semana',
+          'Cardápio Completo da Semana',
           style: TextStyle(
-            color: kNavbarBackgroundColor,
+            color: kSecondaryColor,
             fontSize: 20.0,
-            fontWeight: FontWeight.w900,
+            fontWeight: FontWeight.w600,
           ),
         ),
       ),
       body: SafeArea(
         child: RefreshIndicator(
-          color: kNavbarBackgroundColor,
+          color: kPrecoIconColor,
           onRefresh: () async {
             await Provider.of<Data>(context, listen: false).getCardapio();
           },

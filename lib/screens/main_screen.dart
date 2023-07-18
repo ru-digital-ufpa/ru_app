@@ -52,12 +52,12 @@ class _MainScreenState extends State<MainScreen> {
       appBar: AppBar(
         backgroundColor: kPrimaryColor,
         iconTheme: const IconThemeData(
-          color: kNavbarBackgroundColor,
+          color: kSecondaryColor,
         ),
         title: const Text(
           'RU DIGITAL',
           style: TextStyle(
-            color: kNavbarBackgroundColor,
+            color: kSecondaryColor,
             fontSize: 20.0,
             fontWeight: FontWeight.w900,
           ),
@@ -68,11 +68,14 @@ class _MainScreenState extends State<MainScreen> {
               right: 5,
             ),
             child: CircleAvatar(
-              radius: 30,
+              radius: 24,
               backgroundColor: kSecondaryColor,
-              child: Image.asset(
-                'images/ufpa_logo.png',
-                fit: BoxFit.fitWidth,
+              child: Padding(
+                padding: const EdgeInsets.all(3.5),
+                child: Image.asset(
+                  'images/ufpa_logo.png',
+                  fit: BoxFit.fitWidth,
+                ),
               ),
             ),
           ),
