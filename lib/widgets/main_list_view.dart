@@ -17,10 +17,13 @@ class MainListView extends StatelessWidget {
   Widget build(BuildContext context) {
     final myDateFormat = DateFormat('dd-MM-yyyy');
     final cardapio = Provider.of<Data>(context, listen: true).cardapioDeHoje;
+    final listOfNewsAndImages =
+        Provider.of<Data>(context, listen: true).listOfNews;
+    final isNew = listOfNewsAndImages.isNotEmpty;
 
     return ListView(
       children: [
-        const NewsCarouselSlider(),
+        (isNew ? const NewsCarouselSlider() : const SizedBox.shrink()),
         ListView.builder(
           shrinkWrap: true,
           primary: false,

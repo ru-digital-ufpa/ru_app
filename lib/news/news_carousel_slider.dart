@@ -10,7 +10,7 @@ class NewsCarouselSlider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final listOfImages = Provider.of<Data>(context, listen: true).listOfImages;
+    final listOfImages = Provider.of<Data>(context, listen: true).listOfNews;
     return Center(
       child: CarouselSlider.builder(
         options: CarouselOptions(

@@ -19,6 +19,9 @@ class RuListView extends StatelessWidget {
     final bool isSexta = Provider.of<Data>(context).isSexta;
     final List<dynamic> cardapioDeHoje =
         Provider.of<Data>(context).cardapioDeHoje;
+    final listOfNewsAndImages =
+        Provider.of<Data>(context, listen: true).listOfNews;
+    bool isNew = listOfNewsAndImages.isNotEmpty;
 
     return RefreshIndicator(
       color: kNavbarBackgroundColor,
@@ -33,9 +36,11 @@ class RuListView extends StatelessWidget {
               : noUpdate
                   //esparando por atualização do cardapio
                   ? Column(
-                      children: const <Widget>[
-                        NewsCarouselSlider(),
-                        Expanded(
+                      children: <Widget>[
+                        isNew
+                            ? const NewsCarouselSlider()
+                            : const SizedBox.shrink(),
+                        const Expanded(
                           child: NoCardapio(
                             msg: 'Aguardando atualização do cardápio...',
                             color: kWeekEndColor,
@@ -43,12 +48,15 @@ class RuListView extends StatelessWidget {
                         ),
                       ],
                     )
+
                   // fins de semanas
                   : weekEnd
                       ? Column(
-                          children: const <Widget>[
-                            NewsCarouselSlider(),
-                            Expanded(
+                          children: <Widget>[
+                            isNew
+                                ? const NewsCarouselSlider()
+                                : const SizedBox.shrink(),
+                            const Expanded(
                               child: NoCardapio(
                                 msg: 'Sem funcionamento aos fins de semana',
                                 color: kWeekEndColor,
@@ -56,6 +64,7 @@ class RuListView extends StatelessWidget {
                             ),
                           ],
                         )
+
                       // não deveria chegar até aqui se for aconteceu algo.
                       : ListView(),
     );
