@@ -44,7 +44,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
           children: <Widget>[
             Image.asset('images/ru_digital_logo.png'),
             const CircularProgressIndicator(
-              color: kNavbarBackgroundColor,
+              color: kSecondaryColor,
             ),
           ],
         ),
