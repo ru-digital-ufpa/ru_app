@@ -17,6 +17,7 @@ class ToDayIsSexta extends StatelessWidget {
     final int index = Provider.of<Data>(context).cardapioDeHoje.length - 1;
     final int semAlmoco =
         Provider.of<Data>(context).cardapioDeHoje[index]['amoco'].length;
+
     final String isSemAlmoco = Provider.of<Data>(context)
         .cardapioDeHoje[index]['amoco']['nomeDaRefei']
         .toString();
@@ -27,9 +28,15 @@ class ToDayIsSexta extends StatelessWidget {
 
     final int semJantar =
         Provider.of<Data>(context).cardapioDeHoje[index]['jantar'].length;
+
+    final listOfNewsAndImages =
+        Provider.of<Data>(context, listen: true).listOfNews;
+
+    bool isNews = listOfNewsAndImages.isNotEmpty;
+
     return ListView(
       children: [
-        const NewsCarouselSlider(),
+        isNews ? const NewsCarouselSlider() : const SizedBox.shrink(),
         const RuDivider(name: 'Hoje'),
         //For almoço
         semAlmoco > 2 && isSemAlmoco != 'SEM FUNCIONAMENTO'
