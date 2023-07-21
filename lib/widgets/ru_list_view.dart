@@ -21,7 +21,7 @@ class RuListView extends StatelessWidget {
         Provider.of<Data>(context).cardapioDeHoje;
     final listOfNewsAndImages =
         Provider.of<Data>(context, listen: true).listOfNews;
-    bool isNew = listOfNewsAndImages.isNotEmpty;
+    bool isNews = listOfNewsAndImages.isNotEmpty;
 
     return RefreshIndicator(
       color: kNavbarBackgroundColor,
@@ -37,7 +37,7 @@ class RuListView extends StatelessWidget {
                   //esparando por atualização do cardapio
                   ? Column(
                       children: <Widget>[
-                        isNew
+                        isNews
                             ? const NewsCarouselSlider()
                             : const SizedBox.shrink(),
                         const Expanded(
@@ -53,7 +53,7 @@ class RuListView extends StatelessWidget {
                   : weekEnd
                       ? Column(
                           children: <Widget>[
-                            isNew
+                            isNews
                                 ? const NewsCarouselSlider()
                                 : const SizedBox.shrink(),
                             const Expanded(
