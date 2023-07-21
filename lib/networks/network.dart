@@ -27,8 +27,8 @@ class NetworkHelper {
   }
 
   postUserToken({String? token}) async {
-    // Uri url = Uri.parse('https://prinako-ru.cyclic.app/token');
-    Uri url = Uri.parse('http://ru.server.net/token');
+    Uri url = Uri.parse('https://prinako-ru.cyclic.app/token');
+    // Uri url = Uri.parse('http://ru.server.net/token');
 
     try {
       await http.post(

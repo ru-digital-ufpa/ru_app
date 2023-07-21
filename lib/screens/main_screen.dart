@@ -8,6 +8,7 @@ import 'package:ru_app/drawer/ru_drawer.dart';
 import 'package:ru_app/widgets/ru_list_view.dart';
 import 'package:ru_app/data/ru_data.dart';
 import 'package:ru_app/permission/notification_permission.dart';
+import 'package:ru_app/widgets/information_dialog.dart';
 
 class MainScreen extends StatefulWidget {
   static String id = 'main_screen';
@@ -84,6 +85,7 @@ class _MainScreenState extends State<MainScreen> {
       body: const SafeArea(
         child: RuListView(),
       ),
+      floatingActionButton: const ShowInformationDialog(),
       drawer: const RuDrawer(),
     );
   }
