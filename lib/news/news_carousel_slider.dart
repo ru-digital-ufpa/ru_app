@@ -17,6 +17,7 @@ class NewsCarouselSlider extends StatelessWidget {
           height: MediaQuery.of(context).size.height / 5,
           autoPlay: true,
           enlargeCenterPage: true,
+          animateToClosest: true,
         ),
         itemCount: listOfImages.length,
         itemBuilder: (context, index, realIndex) {
@@ -24,7 +25,7 @@ class NewsCarouselSlider extends StatelessWidget {
           final isImage = listOfImages[index]['isImage'];
           return Card(
             color: !isImage ? Color(listOfNoticias['textColor']) : Colors.white,
-            margin: const EdgeInsets.symmetric(vertical: 5),
+            margin: const EdgeInsets.symmetric(vertical: 2),
             elevation: 3,
             shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.all(
@@ -33,7 +34,7 @@ class NewsCarouselSlider extends StatelessWidget {
             ),
             child: Padding(
               padding: isImage
-                  ? const EdgeInsets.all(3.0)
+                  ? const EdgeInsets.all(0.0)
                   : const EdgeInsets.all(8.0),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(10),
