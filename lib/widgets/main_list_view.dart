@@ -74,8 +74,8 @@ class BuildNewCardapio extends StatelessWidget {
             : const RuDivider(name: 'Amanhã'),
         semFuncionamentoAlmoco > 2
             ? RuCard(
-                refeicao:
-                    '${Provider.of<Data>(context, listen: true).cardapioDeHoje[index]['amoco']['refeicao']} 11:00 - 14:00',
+                refeicao: Provider.of<Data>(context, listen: true)
+                    .cardapioDeHoje[index]['amoco']['refeicao'],
                 nomeDaRefi: Provider.of<Data>(context, listen: true)
                     .cardapioDeHoje[index]['amoco']['nomeDaRefei'],
                 vegetariano: Provider.of<Data>(context, listen: true)
@@ -92,15 +92,15 @@ class BuildNewCardapio extends StatelessWidget {
                     .cardapioDeHoje[index]['amoco']['ingredintes']['amo5'],
               )
             : SemCardapio(
-                refeicao:
-                    '${Provider.of<Data>(context, listen: true).cardapioDeHoje[index]['amoco']['refeicao']} 11:00 - 14:00',
+                refeicao: Provider.of<Data>(context, listen: true)
+                    .cardapioDeHoje[index]['amoco']['refeicao'],
                 nomeDaRefi: Provider.of<Data>(context, listen: true)
                     .cardapioDeHoje[index]['amoco']['nomeDaRefei'],
               ),
         semFuncionamentoJantar > 2
             ? RuCard(
-                refeicao:
-                    '${Provider.of<Data>(context, listen: true).cardapioDeHoje[index]['jantar']['refeicao']}  17:45 - 19:15',
+                refeicao: Provider.of<Data>(context, listen: true)
+                    .cardapioDeHoje[index]['jantar']['refeicao'],
                 nomeDaRefi: Provider.of<Data>(context, listen: true)
                     .cardapioDeHoje[index]['jantar']['nomeDaRefei'],
                 vegetariano: Provider.of<Data>(context, listen: true)
@@ -117,8 +117,8 @@ class BuildNewCardapio extends StatelessWidget {
                     .cardapioDeHoje[index]['jantar']['ingredintes']['jan5'],
               )
             : SemCardapio(
-                refeicao:
-                    '${Provider.of<Data>(context, listen: true).cardapioDeHoje[index]['jantar']['refeicao']} 17:45 - 19:15',
+                refeicao: Provider.of<Data>(context, listen: true)
+                    .cardapioDeHoje[index]['jantar']['refeicao'],
                 nomeDaRefi: Provider.of<Data>(context, listen: true)
                     .cardapioDeHoje[0]['jantar']['nomeDaRefei'],
               ),

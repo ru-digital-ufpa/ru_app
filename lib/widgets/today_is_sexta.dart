@@ -41,8 +41,8 @@ class ToDayIsSexta extends StatelessWidget {
         //For almoço
         semAlmoco > 2 && isSemAlmoco != 'SEM FUNCIONAMENTO'
             ? RuCard(
-                refeicao:
-                    '${Provider.of<Data>(context).cardapioDeHoje[index]['amoco']['refeicao']} 11:00 - 14:00',
+                refeicao: Provider.of<Data>(context).cardapioDeHoje[index]
+                    ['amoco']['refeicao'],
                 nomeDaRefi: Provider.of<Data>(context).cardapioDeHoje[index]
                     ['amoco']['nomeDaRefei'],
                 vegetariano: Provider.of<Data>(context).cardapioDeHoje[index]
@@ -59,16 +59,16 @@ class ToDayIsSexta extends StatelessWidget {
                     ['amoco']['ingredintes']['amo5'],
               )
             : SemCardapio(
-                refeicao:
-                    '${Provider.of<Data>(context).cardapioDeHoje[index]['amoco']['refeicao']}  11:00 - 14:00',
+                refeicao: Provider.of<Data>(context).cardapioDeHoje[index]
+                    ['amoco']['refeicao'],
                 nomeDaRefi: Provider.of<Data>(context).cardapioDeHoje[index]
                     ['amoco']['nomeDaRefei'],
               ),
         //For jantar
         semJantar > 2 && isSemJantar != 'SEM FUNCIONAMENTO'
             ? RuCard(
-                refeicao:
-                    '${Provider.of<Data>(context).cardapioDeHoje[index]['jantar']['refeicao']} 17:45 - 19:15',
+                refeicao: Provider.of<Data>(context).cardapioDeHoje[index]
+                    ['jantar']['refeicao'],
                 nomeDaRefi: Provider.of<Data>(context).cardapioDeHoje[index]
                     ['jantar']['nomeDaRefei'],
                 vegetariano: Provider.of<Data>(context).cardapioDeHoje[index]
@@ -87,8 +87,8 @@ class ToDayIsSexta extends StatelessWidget {
             : SemCardapio(
                 nomeDaRefi: Provider.of<Data>(context).cardapioDeHoje[index]
                     ['jantar']['nomeDaRefei'],
-                refeicao:
-                    '${Provider.of<Data>(context).cardapioDeHoje[index]['jantar']['refeicao']} 17:45h - 19:15h',
+                refeicao: Provider.of<Data>(context).cardapioDeHoje[index]
+                    ['jantar']['refeicao'],
               ),
         const RuDivider(name: 'Amanhã'),
         const NoCardapio(

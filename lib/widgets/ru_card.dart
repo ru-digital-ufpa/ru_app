@@ -68,9 +68,7 @@ class CardContainer extends StatelessWidget {
         padding: const EdgeInsets.all(2.0),
         child: Card(
           elevation: 5,
-          color: refeicao == 'ALMOÇO' || refeicao == 'ALMOÇO 11:00 - 14:00'
-              ? kAlmocoColor
-              : kJantarColor,
+          color: refeicao == 'ALMOÇO' ? kAlmocoColor : kJantarColor,
           shadowColor: kSecondaryColor,
           shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(
