@@ -23,13 +23,19 @@ class _LoadingScreenState extends State<LoadingScreen> {
 
   void getCardapio() async {
     List<dynamic> cardapio = [];
+    // List<dynamic> getListOfNews = [];
 
     NetworkHelper get = NetworkHelper();
 
     cardapio = await get.getData();
+    // getListOfNews = await get.getNews();
     // ignore: use_build_context_synchronously
     Provider.of<Data>(context, listen: false).changeCardapio(cardapio);
-    // ignore: use_build_context_synchronously
+    isReady();
+  }
+
+  void isReady() {
+    Provider.of<Data>(context, listen: false).getNewsFromServer();
     Navigator.pushReplacementNamed(context, MainScreen.id);
   }
 

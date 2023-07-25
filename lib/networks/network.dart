@@ -52,7 +52,7 @@ class NetworkHelper {
     if (response.statusCode == 200) {
       final body = response.body;
       final json = jsonDecode(body);
-      cardapio = json;
+      news = json;
       //print(cardapio);
       return news;
     } else {
