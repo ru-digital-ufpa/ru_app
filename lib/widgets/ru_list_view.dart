@@ -65,7 +65,7 @@ class RuListView extends StatelessWidget {
                           ],
                         )
 
-                      // não deveria chegar até aqui se for aconteceu algo.
+                      // não deveria chegar até aqui se for, aconteceu algo.
                       : ListView(),
     );
   }
