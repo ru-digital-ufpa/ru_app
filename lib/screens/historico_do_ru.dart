@@ -17,7 +17,7 @@ class HistoricoDoRu extends StatelessWidget {
           color: kSecondaryColor,
         ),
         title: const Text(
-          'Cardápio completo da semana',
+          'Histórico',
           style: TextStyle(
             color: kSecondaryColor,
             fontSize: 20.0,
@@ -28,21 +28,11 @@ class HistoricoDoRu extends StatelessWidget {
       body: const SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.all(8.0),
+            padding: EdgeInsets.all(10.0),
             child: Column(
               children: [
-                Padding(
-                  padding: EdgeInsets.only(
-                    top: 32,
-                    bottom: 20,
-                  ),
-                  child: Text(
-                    'Histórico',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w700,
-                    ),
-                  ),
+                SizedBox(
+                  height: 10,
                 ),
                 Text(
                   'O Restaurante Universitário da UFPA foi inaugurado em 01 de outubro de 1993, e iniciou suas atividades em 13 de outubro do mesmo ano, com sua estrutura física projetada para o atendimento de até 1.200 refeições.',

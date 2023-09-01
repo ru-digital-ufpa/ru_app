@@ -47,7 +47,7 @@ class ShowInformationDialog extends StatelessWidget {
       tooltip: 'informação do cardápio',
       child: const Icon(
         MyFlutterApp.info,
-        size: 27,
+        size: 19,
       ),
     );
   }
