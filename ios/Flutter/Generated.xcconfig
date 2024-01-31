@@ -1,6 +1,6 @@
 // This is a generated file; do not edit or check into version control.
 FLUTTER_ROOT=/home/prinako/.flutter_install/flutter
-FLUTTER_APPLICATION_PATH=/home/prinako/External/MyDrive/RU/ru_app
+FLUTTER_APPLICATION_PATH=/home/prinako/Entenal/MyDrive/RU/ru_app
 COCOAPODS_PARALLEL_CODE_SIGN=true
 FLUTTER_TARGET=lib/main.dart
 FLUTTER_BUILD_DIR=build
