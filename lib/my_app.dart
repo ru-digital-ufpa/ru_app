@@ -50,7 +50,6 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       theme: ThemeData.light().copyWith(
         primaryColor: kPrimaryColor,
-        useMaterial3: true,
       ),
       color: kPrimaryColor,
       initialRoute: LoadingScreen.id,

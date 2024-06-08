@@ -7,6 +7,9 @@ class NetworkHelper {
 
   NetworkHelper();
 
+  final host =
+      'mongodb+srv://<username>:<password>@cluster0.kqo8y.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+
   Future getData() async {
     Uri url = Uri.parse('https://prinako-ru.cyclic.app/api');
     // Uri url = Uri.parse('http://ru.server.net/api');

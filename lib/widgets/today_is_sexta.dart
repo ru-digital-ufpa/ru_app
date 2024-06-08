@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
 import 'package:ru_app/constants.dart';
 import 'package:ru_app/widgets/ru_divider.dart';
 import 'package:ru_app/widgets/ru_card.dart';
@@ -10,7 +11,7 @@ import 'package:ru_app/widgets/ru_sem_cardapio.dart';
 import '../news/news_carousel_slider.dart';
 
 class ToDayIsSexta extends StatelessWidget {
-  const ToDayIsSexta({Key? key}) : super(key: key);
+  const ToDayIsSexta({super.key});
 
   @override
   Widget build(BuildContext context) {

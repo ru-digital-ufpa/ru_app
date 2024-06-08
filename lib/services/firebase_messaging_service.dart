@@ -1,14 +1,13 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:flutter_notification_channel/flutter_notification_channel.dart';
-import 'package:flutter_notification_channel/notification_importance.dart';
 import 'package:ru_app/services/notification_service.dart';
-import 'package:ru_app/networks/network.dart';
+import 'package:ru_app/data/get_token.dart';
 
 class FirebaseMessagingService {
   final NotificationService _notificationService;
 
   FirebaseMessagingService(this._notificationService);
+
   AndroidNotificationDetails androidDetails = const AndroidNotificationDetails(
     'ru_digital',
     'Ru Digital Notificação',
@@ -19,43 +18,54 @@ class FirebaseMessagingService {
   );
 
   Future<void> initialize() async {
-    // final result =
-    await FlutterNotificationChannel.registerNotificationChannel(
-      description: 'for notify users',
-      id: 'ru_digital',
-      importance: NotificationImportance.IMPORTANCE_HIGH,
-      name: 'Ru Digital UFPA',
-    );
-    // print(result);
-
     NotificationSettings settings =
         await FirebaseMessaging.instance.requestPermission(
       badge: true,
       sound: true,
       alert: true,
       provisional: true,
-      //   .setForegroundNotificationPresentationOptions(
-      // badge: true,
-      // sound: true,
-      // alert: true,
     );
 
+    // Create the Android notification channel
+    const AndroidNotificationChannel channel = AndroidNotificationChannel(
+      'ru_digital', // Channel ID (must be unique)
+      'Ru Digital UFPA', // Channel name
+      description: 'for notify users',
+      importance: Importance.high,
+    );
+
+    // Initialize flutter_local_notifications plugin
+    final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+        FlutterLocalNotificationsPlugin();
+
+    // Register the channel with flutter_local_notifications
+    await flutterLocalNotificationsPlugin
+        .resolvePlatformSpecificImplementation<
+            AndroidFlutterLocalNotificationsPlugin>()
+        ?.createNotificationChannel(channel);
+
     if (settings.authorizationStatus == AuthorizationStatus.authorized) {
+      print("Usuário autorizou notificações");
     } else if (settings.authorizationStatus ==
         AuthorizationStatus.provisional) {
-    } else {}
+      print("Usuário autorizou notificações provisórias");
+    } else {
+      print("Usuário não autorizou notificações");
+    }
 
     getDeviceFirebaseToken();
     _onMessage();
     _onMessageOpenedApp();
-    // _onMessageBackground();
   }
 
+  // ... rest of your code ...
   getDeviceFirebaseToken() async {
     final token = await FirebaseMessaging.instance.getToken();
-    // print(token);
-    NetworkHelper sendPost = NetworkHelper();
-    await sendPost.postUserToken(token: token);
+    if (token != null) {
+      print("Token: $token");
+      GetToken getToken = GetToken();
+      getToken.insertToken(token: token);
+    }
   }
 
   _onMessage() async {
@@ -79,18 +89,7 @@ class FirebaseMessagingService {
     FirebaseMessaging.onMessageOpenedApp.listen(_goToPageAfterMessage);
   }
 
-  // _handleMessage(RemoteMessage message) {
-  //   if (message.data['route'] == 'allCardapio') {
-  //     Navigator.pushNamed(  TodoCardapioScreen.id,);
-  //   }
-  // }
   _goToPageAfterMessage(message) {
-    // final String route = message.data['route'] ?? '';
-    // if (route.isNotEmpty) {
-    //   // Routes.h();
-    // }
+    // Handle navigation logic here based on the received message
   }
-
-  // _onMessageBackground() {
-  // }
 }

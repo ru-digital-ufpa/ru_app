@@ -48,6 +48,7 @@ class ShowInformationDialog extends StatelessWidget {
       child: const Icon(
         MyFlutterApp.info,
         size: 19,
+        color: kSecondaryColor,
       ),
     );
   }
