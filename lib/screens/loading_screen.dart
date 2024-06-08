@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:ru_app/constants.dart';
-import 'package:ru_app/networks/network.dart';
-import 'package:ru_app/screens/main_screen.dart';
 import 'package:provider/provider.dart';
+
+import 'package:ru_app/constants.dart';
+import 'package:ru_app/screens/main_screen.dart';
 import 'package:ru_app/data/ru_data.dart';
 
 class LoadingScreen extends StatefulWidget {
@@ -18,25 +18,23 @@ class _LoadingScreenState extends State<LoadingScreen> {
   @override
   void initState() {
     super.initState();
-    getCardapio();
+    _loadData();
   }
 
-  void getCardapio() async {
-    List<dynamic> cardapio = [];
-    // List<dynamic> getListOfNews = [];
+  Future<void> _loadData() async {
+    final dataProvider = Provider.of<Data>(context, listen: false);
 
-    NetworkHelper get = NetworkHelper();
+    final cardapio = await dataProvider.getCardapio();
 
-    cardapio = await get.getData();
-    // getListOfNews = await get.getNews();
-    // ignore: use_build_context_synchronously
-    Provider.of<Data>(context, listen: false).changeCardapio(cardapio);
-    isReady();
+    if (cardapio) {
+      dataProvider.getNewsFromServer();
+      Navigator.pushReplacementNamed(context, MainScreen.id);
+    }
   }
 
-  void isReady() {
-    Provider.of<Data>(context, listen: false).getNewsFromServer();
-    Navigator.pushReplacementNamed(context, MainScreen.id);
+  @override
+  void dispose() {
+    super.dispose();
   }
 
   @override

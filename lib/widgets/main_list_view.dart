@@ -10,8 +10,8 @@ import 'package:ru_app/news/news_carousel_slider.dart';
 
 class MainListView extends StatelessWidget {
   const MainListView({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:ru_app/networks/network.dart';
+import 'package:ru_app/networks/connect_mongo.dart';
 
 class Data extends ChangeNotifier {
   List<dynamic> cardapio = [];
@@ -126,30 +126,35 @@ class Data extends ChangeNotifier {
   }
 
   Future<bool> getCardapio() async {
-    List<dynamic> cardapio = [];
+    ConnectMongo connectMongo = ConnectMongo();
 
-    NetworkHelper get = NetworkHelper();
-
-    cardapio = await get.getData();
-    // ignore: use_build_context_synchronously
+    var db = await connectMongo.connect();
+    cardapio = await db.collection('cadapios').find().toList();
     changeCardapio(cardapio);
-    return Future.value(true);
 
-    // ignore: use_build_context_synchronously
+    db.close();
+
+    return Future.value(true);
   }
 
   void getNewsFromServer() async {
-    NetworkHelper get = NetworkHelper();
-    listOfNews = await get.getNews();
+    ConnectMongo connectMongo = ConnectMongo();
+    var db = await connectMongo.connect();
+    listOfNews = await db.collection('news').find().toList();
+
+    db.close();
+
     notifyListeners();
   }
 
   void onTimer() async {
     List<dynamic> cardapioUp = [];
-    NetworkHelper get = NetworkHelper();
 
-    cardapioUp = await get.getData();
-    // ignore: use_build_context_synchronously
+    ConnectMongo connectMongo = ConnectMongo();
+    var db = await connectMongo.connect();
+    cardapioUp = await db.collection('cadapios').find().toList();
+    // close db
+    db.close();
 
     changeCardapio(cardapioUp);
     notifyListeners();
