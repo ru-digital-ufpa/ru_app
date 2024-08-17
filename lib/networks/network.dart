@@ -1,4 +1,5 @@
 import 'package:http/http.dart' as http;
+import 'package:ru_app/networks/env.dart';
 import 'dart:convert';
 
 class NetworkHelper {
@@ -7,30 +8,44 @@ class NetworkHelper {
 
   NetworkHelper();
 
-  final host =
-      'mongodb+srv://<username>:<password>@cluster0.kqo8y.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
-
+  /// Get data from API
+  ///
+  /// This method sends a GET request to the API and returns a [Future] that
+  /// resolves to a [List] of [Map]s containing the data from the API if the
+  /// request is successful.
+  ///
+  /// The data is stored in the [cardapio] property.
   Future getData() async {
-    Uri url = Uri.parse('https://prinako-ru.cyclic.app/api');
+    Uri url = Uri.parse(Env.api);
     // Uri url = Uri.parse('http://ru.server.net/api');
-
-    http.Response response = await http.get(
-      url,
-    );
-    // print(response.statusCode);
-    if (response.statusCode == 200) {
-      final body = response.body;
-      final json = jsonDecode(body);
-      cardapio = json;
-      //print(cardapio);
-      return cardapio;
-    } else {
+    try {
+      http.Response response = await http.get(
+        url,
+      );
       // print(response.statusCode);
+      if (response.statusCode == 200) {
+        final body = response.body;
+        final json = jsonDecode(body);
+        cardapio = json;
+        print(cardapio);
+        return cardapio;
+      } else {
+        // print(response.statusCode);
+      }
+    } catch (e) {
+      print(e);
+      return cardapio;
     }
   }
 
-  postUserToken({String? token}) async {
-    Uri url = Uri.parse('https://prinako-ru.cyclic.app/token');
+  /// Post user token to API
+  ///
+  /// This method sends a POST request to the API with the user's token and
+  /// returns a [Future] that resolves when the request is complete.
+  ///
+  /// The [token] parameter is optional and defaults to [null].
+  Future postUserToken({String? token}) async {
+    Uri url = Uri.parse(Env.token);
     // Uri url = Uri.parse('http://ru.server.net/token');
 
     try {
@@ -44,22 +59,33 @@ class NetworkHelper {
     }
   }
 
-  getNews() async {
-    Uri url = Uri.parse('https://prinako-ru.cyclic.app/news');
+  /// Get news from API
+  ///
+  /// This method sends a GET request to the API and returns a [Future] that
+  /// resolves to a [List] of [Map]s containing the news from the API if the
+  /// request is successful.
+  ///
+  /// The news is stored in the [news] property.
+  Future getNews() async {
+    Uri url = Uri.parse(Env.news);
     // Uri url = Uri.parse('http://ru.server.net/api');
-
-    http.Response response = await http.get(
-      url,
-    );
-    // print(response.statusCode);
-    if (response.statusCode == 200) {
-      final body = response.body;
-      final json = jsonDecode(body);
-      news = json;
-      //print(cardapio);
-      return news;
-    } else {
+    try {
+      http.Response response = await http.get(
+        url,
+      );
       // print(response.statusCode);
+      if (response.statusCode == 200) {
+        final body = response.body;
+        final json = jsonDecode(body);
+        news = json;
+        //print(cardapio);
+        return news;
+      } else {
+        // print(response.statusCode);
+      }
+    } catch (e) {
+      print(e);
+      return news;
     }
   }
 }

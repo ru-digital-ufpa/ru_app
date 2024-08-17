@@ -17,9 +17,9 @@ class ConnectMongo {
   /// using [db.open()]. Finally, it returns the opened [Db] object.
   ///
   /// Returns a [Future<Db>] that resolves to the opened [Db] object.
-  Future<Db> connect() async {
-    final db = await Db.create(Env.host);
-    await db.open();
-    return db;
-  }
+  // Future<Db> connect() async {
+  //   final db = await Db.create(Env.host);
+  //   await db.open();
+  //   return db;
+  // }
 }

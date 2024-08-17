@@ -14,26 +14,26 @@ class GetToken {
   ///  None.
   void insertToken({String? token}) async {
     // Connect to the MongoDB database
-    ConnectMongo connectMongo = ConnectMongo();
-    var db = await connectMongo.connect();
+    //   ConnectMongo connectMongo = ConnectMongo();
+    //   // var db = await connectMongo.connect();
 
-    var collection = db.collection('tokens');
+    //   // var collection = db.collection('tokens');
 
-    var existingItem = await collection.findOne({'token': token});
+    //   // var existingItem = await collection.findOne({'token': token});
 
-    // Insert the cardapio item only if the token is unique
-    if (existingItem == null) {
-      // Create a new cardapio item with the unique token
-      Map<String, dynamic> newCardapioItem = {
-        'token': token,
-        // ... other cardapio data ...
-      };
+    //   // Insert the cardapio item only if the token is unique
+    //   if (existingItem == null) {
+    //     // Create a new cardapio item with the unique token
+    //     Map<String, dynamic> newCardapioItem = {
+    //       'token': token,
+    //       // ... other cardapio data ...
+    //     };
 
-      // Insert the token as a document in the 'tokens' collection
-      await collection.insert(newCardapioItem);
-    }
+    //     // Insert the token as a document in the 'tokens' collection
+    //     await collection.insert(newCardapioItem);
+    //   }
 
-    // Close the database connection
-    db.close();
+    //   // Close the database connection
+    //   db.close();
   }
 }

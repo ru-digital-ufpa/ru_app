@@ -6,7 +6,8 @@ import 'package:ru_app/widgets/ru_no_cardapio.dart';
 import 'package:ru_app/widgets/main_list_view.dart';
 import 'package:ru_app/widgets/today_is_sexta.dart';
 
-import '../news/news_carousel_slider.dart';
+// import '../news/news_carousel_slider.dart';
+import 'package:ru_app/news/news_carousel_slider.dart';
 
 class RuListView extends StatelessWidget {
   const RuListView({super.key});
