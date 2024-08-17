@@ -15,8 +15,8 @@ final Uri acessoFacilRuUrl =
 
 class RuDrawer extends StatelessWidget {
   const RuDrawer({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

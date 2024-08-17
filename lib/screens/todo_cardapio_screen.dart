@@ -54,10 +54,10 @@ class _TodoCardapioScreenState extends State<TodoCardapioScreen> {
                             DateFormat('dd-MM-yyyy').parse(item2['data'])),
                   );
               final int semAlmoco = Provider.of<Data>(context, listen: true)
-                  .cardapio[index]['amoco']
+                  .cardapio[index]['almoco']
                   .length;
               final String isSemAlmoco = Provider.of<Data>(context)
-                  .cardapio[index]['amoco']['nomeDaRefei']
+                  .cardapio[index]['almoco']['nomeDaRefei']
                   .toString();
 
               final String isSemJantar = Provider.of<Data>(context)
@@ -82,33 +82,34 @@ class _TodoCardapioScreenState extends State<TodoCardapioScreen> {
                     semAlmoco > 2 && isSemAlmoco != 'SEM FUNCIONAMENTO'
                         ? RuCard(
                             refeicao: Provider.of<Data>(context, listen: true)
-                                .cardapio[index]['amoco']['refeicao'],
+                                .cardapio[index]['almoco']['refeicao'],
                             nomeDaRefi: Provider.of<Data>(context, listen: true)
-                                .cardapio[index]['amoco']['nomeDaRefei'],
+                                .cardapio[index]['almoco']['nomeDaRefeicao'],
                             vegetariano:
                                 Provider.of<Data>(context, listen: true)
-                                    .cardapio[index]['amoco']['vegetariano1'],
+                                        .cardapio[index]['almoco']
+                                    ['vegetarianoAlmoco'],
                             comida1: Provider.of<Data>(context, listen: true)
-                                    .cardapio[index]['amoco']['ingredintes']
+                                    .cardapio[index]['almoco']['acompanhamento']
                                 ['amo1'],
                             comida2: Provider.of<Data>(context, listen: true)
-                                    .cardapio[index]['amoco']['ingredintes']
+                                    .cardapio[index]['almoco']['acompanhamento']
                                 ['amo2'],
                             comida3: Provider.of<Data>(context, listen: true)
-                                    .cardapio[index]['amoco']['ingredintes']
+                                    .cardapio[index]['almoco']['acompanhamento']
                                 ['amo3'],
                             comida4: Provider.of<Data>(context, listen: true)
-                                    .cardapio[index]['amoco']['ingredintes']
+                                    .cardapio[index]['almoco']['acompanhamento']
                                 ['amo4'],
                             comida5: Provider.of<Data>(context, listen: true)
-                                    .cardapio[index]['amoco']['ingredintes']
+                                    .cardapio[index]['almoco']['acompanhamento']
                                 ['amo5'],
                           )
                         : SemCardapio(
                             refeicao:
-                                '${Provider.of<Data>(context, listen: true).cardapio[index]['amoco']['refeicao']} ',
+                                '${Provider.of<Data>(context, listen: true).cardapio[index]['almoco']['refeicao']} ',
                             nomeDaRefi: Provider.of<Data>(context, listen: true)
-                                .cardapio[index]['amoco']['nomeDaRefei'],
+                                .cardapio[index]['almoco']['nomeDaRefeicao'],
                           ),
                     //For jantar
                     semJantar > 2 && isSemJantar != 'SEM FUNCIONAMENTO'
@@ -118,29 +119,30 @@ class _TodoCardapioScreenState extends State<TodoCardapioScreen> {
                             refeicao: Provider.of<Data>(context, listen: true)
                                 .cardapio[index]['jantar']['refeicao'],
                             nomeDaRefi: Provider.of<Data>(context, listen: true)
-                                .cardapio[index]['jantar']['nomeDaRefei'],
+                                .cardapio[index]['jantar']['nomeDaRefeicao'],
                             vegetariano:
                                 Provider.of<Data>(context, listen: true)
-                                    .cardapio[index]['jantar']['vegetariano2'],
+                                        .cardapio[index]['jantar']
+                                    ['vegetarianoJantar'],
                             comida1: Provider.of<Data>(context, listen: true)
-                                    .cardapio[index]['jantar']['ingredintes']
+                                    .cardapio[index]['jantar']['acompanhamento']
                                 ['jan1'],
                             comida2: Provider.of<Data>(context, listen: true)
-                                    .cardapio[index]['jantar']['ingredintes']
+                                    .cardapio[index]['jantar']['acompanhamento']
                                 ['jan2'],
                             comida3: Provider.of<Data>(context, listen: true)
-                                    .cardapio[index]['jantar']['ingredintes']
+                                    .cardapio[index]['jantar']['acompanhamento']
                                 ['jan3'],
                             comida4: Provider.of<Data>(context, listen: true)
-                                    .cardapio[index]['jantar']['ingredintes']
+                                    .cardapio[index]['jantar']['acompanhamento']
                                 ['jan4'],
                             comida5: Provider.of<Data>(context, listen: true)
-                                    .cardapio[index]['jantar']['ingredintes']
+                                    .cardapio[index]['jantar']['acompanhamento']
                                 ['jan5'],
                           )
                         : SemCardapio(
                             nomeDaRefi: Provider.of<Data>(context, listen: true)
-                                .cardapio[index]['jantar']['nomeDaRefei'],
+                                .cardapio[index]['jantar']['nomeDaRefeicao'],
                             refeicao: Provider.of<Data>(context, listen: true)
                                 .cardapio[index]['jantar']['refeicao'],
                           )
