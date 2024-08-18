@@ -22,12 +22,12 @@ class _LoadingScreenState extends State<LoadingScreen> {
   }
 
   Future<void> _loadData() async {
-    final dataProvider = Provider.of<Data>(context, listen: false);
+    // final dataProvider = context.read<Data>();
 
-    final cardapio = await dataProvider.getCardapio();
+    final cardapio = await context.read<Data>().getCardapio();
 
     if (cardapio) {
-      dataProvider.getNewsFromServer();
+      context.read<Data>().getNewsFromServer();
       Navigator.pushReplacementNamed(context, MainScreen.id);
     }
   }

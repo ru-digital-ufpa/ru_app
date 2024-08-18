@@ -1,4 +1,4 @@
-import 'package:ru_app/networks/connect_mongo.dart';
+import 'package:ru_app/networks/network.dart';
 
 class GetToken {
   GetToken();
@@ -13,6 +13,8 @@ class GetToken {
   /// Returns:
   ///  None.
   void insertToken({String? token}) async {
+    NetworkHelper networkHelper = NetworkHelper();
+    await networkHelper.postUserToken(token: token);
     // Connect to the MongoDB database
     //   ConnectMongo connectMongo = ConnectMongo();
     //   // var db = await connectMongo.connect();

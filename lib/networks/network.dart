@@ -27,7 +27,6 @@ class NetworkHelper {
         final body = response.body;
         final json = jsonDecode(body);
         cardapio = json;
-        print(cardapio);
         return cardapio;
       } else {
         // print(response.statusCode);
