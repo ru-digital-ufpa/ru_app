@@ -62,7 +62,7 @@ class FirebaseMessagingService {
   getDeviceFirebaseToken() async {
     final token = await FirebaseMessaging.instance.getToken();
     if (token != null) {
-      print("Token: $token");
+      // print("Token: $token");
       GetToken getToken = GetToken();
       getToken.insertToken(token: token);
     }

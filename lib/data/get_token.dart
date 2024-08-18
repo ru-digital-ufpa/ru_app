@@ -1,41 +1,26 @@
 import 'package:ru_app/networks/network.dart';
 
+/// A class that handles inserting a token into the server.
+///
+/// This class has a single method, [insertToken], which sends a POST
+/// request to the server with the token. The server will ignore the
+/// token if it is not provided.
 class GetToken {
   GetToken();
 
-  /// Inserts a token to the 'tokens' collection in the MongoDB database.
+  /// Inserts a token into the server.
   ///
-  /// The token is inserted as a document in the 'tokens' collection.
+  /// This method makes a POST request to the server with the token
+  /// and awaits for the response.
   ///
-  /// Parameters:
-  ///  - [token] (optional): The token to be inserted. If not provided, the token will be null.
-  ///
-  /// Returns:
-  ///  None.
+  /// The [token] is an optional parameter. If it is not provided,
+  /// the server will ignore the token.
   void insertToken({String? token}) async {
+    // Create a NetworkHelper instance to handle network requests.
     NetworkHelper networkHelper = NetworkHelper();
+
+    // Send a POST request to the server with the token.
+    // The server will ignore the token if it is not provided.
     await networkHelper.postUserToken(token: token);
-    // Connect to the MongoDB database
-    //   ConnectMongo connectMongo = ConnectMongo();
-    //   // var db = await connectMongo.connect();
-
-    //   // var collection = db.collection('tokens');
-
-    //   // var existingItem = await collection.findOne({'token': token});
-
-    //   // Insert the cardapio item only if the token is unique
-    //   if (existingItem == null) {
-    //     // Create a new cardapio item with the unique token
-    //     Map<String, dynamic> newCardapioItem = {
-    //       'token': token,
-    //       // ... other cardapio data ...
-    //     };
-
-    //     // Insert the token as a document in the 'tokens' collection
-    //     await collection.insert(newCardapioItem);
-    //   }
-
-    //   // Close the database connection
-    //   db.close();
   }
 }
