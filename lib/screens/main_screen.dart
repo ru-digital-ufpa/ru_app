@@ -21,14 +21,19 @@ class _MainScreenState extends State<MainScreen> {
   void initState() {
     super.initState();
     Timer.periodic(
-      const Duration(minutes: 5),
+      const Duration(minutes: 10),
       (timer) {
-        Provider.of<Data>(context, listen: false).onTimer();
+        context.read<Data>().onTimer();
         // Provider.of<FirebaseMessagingService>(context, listen: false)
         //     .getDeviceFirebaseToken();
-        Provider.of<Data>(context, listen: false).getNewsFromServer();
+        context.read<Data>().getNewsFromServer();
       },
     );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
   }
 
   List<dynamic> updateCardapioDoDia = [];

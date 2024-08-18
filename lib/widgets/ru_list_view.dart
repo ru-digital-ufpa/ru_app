@@ -5,8 +5,6 @@ import 'package:ru_app/data/ru_data.dart';
 import 'package:ru_app/widgets/ru_no_cardapio.dart';
 import 'package:ru_app/widgets/main_list_view.dart';
 import 'package:ru_app/widgets/today_is_sexta.dart';
-
-// import '../news/news_carousel_slider.dart';
 import 'package:ru_app/news/news_carousel_slider.dart';
 
 class RuListView extends StatelessWidget {
@@ -14,20 +12,18 @@ class RuListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bool weekEnd = Provider.of<Data>(context).isWeekEnd;
-    final bool isNotWeekEnd = Provider.of<Data>(context).isNotWeekEnd;
-    final bool noUpdate = Provider.of<Data>(context).noUpdate;
-    final bool isSexta = Provider.of<Data>(context).isSexta;
-    final List<dynamic> cardapioDeHoje =
-        Provider.of<Data>(context).cardapioDeHoje;
-    final listOfNewsAndImages =
-        Provider.of<Data>(context, listen: true).listOfNews;
+    final bool weekEnd = context.watch<Data>().isWeekEnd;
+    final bool isNotWeekEnd = context.watch<Data>().isNotWeekEnd;
+    final bool noUpdate = context.watch<Data>().noUpdate;
+    final bool isSexta = context.watch<Data>().isSexta;
+    final List<dynamic> cardapioDeHoje = context.watch<Data>().cardapioDeHoje;
+    final listOfNewsAndImages = context.read<Data>().listOfNews;
     bool isNews = listOfNewsAndImages.isNotEmpty;
 
     return RefreshIndicator(
       color: kNavbarBackgroundColor,
       onRefresh: () async {
-        await Provider.of<Data>(context, listen: false).getCardapio();
+        await context.read<Data>().getCardapio();
       },
       child: isNotWeekEnd && cardapioDeHoje.isNotEmpty
           ? const MainListView()
