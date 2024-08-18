@@ -26,7 +26,7 @@ class NoCardapio extends StatelessWidget {
           shadowColor: kSecondaryColor,
           shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(
-              Radius.circular(10),
+              Radius.circular(30),
             ),
           ),
           child: Padding(
@@ -44,14 +44,6 @@ class NoCardapio extends StatelessWidget {
                     ),
                   ),
                 ],
-                // child: Text(
-
-                //   textAlign: TextAlign.center,
-                //   style: const TextStyle(
-                //     fontSize: 20,
-                //     fontWeight: FontWeight.w500,
-                //   ),
-                // ),
               ),
             ),
           ),
