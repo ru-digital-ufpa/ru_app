@@ -8,11 +8,11 @@ class NoCardapio extends StatelessWidget {
   final Color? textColor;
 
   const NoCardapio({
-    Key? key,
+    super.key,
     required this.msg,
     this.color,
     this.textColor,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
