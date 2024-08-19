@@ -10,14 +10,22 @@ class NewsCarouselSlider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final listOfImages = Provider.of<Data>(context, listen: true).listOfNews;
-    return Center(
+    final listOfImages = context.watch<Data>().listOfNews;
+    return ConstrainedBox(
+      constraints: BoxConstraints(
+        maxWidth: MediaQuery.of(context).size.width,
+        maxHeight: 250.0,
+      ),
       child: CarouselSlider.builder(
         options: CarouselOptions(
-          height: MediaQuery.of(context).size.height / 5,
+          height: double.infinity,
           autoPlay: true,
           enlargeCenterPage: true,
           animateToClosest: true,
+          autoPlayCurve: Curves.fastOutSlowIn,
+          autoPlayInterval: const Duration(seconds: 8),
+          autoPlayAnimationDuration: const Duration(milliseconds: 900),
+          viewportFraction: 1,
         ),
         itemCount: listOfImages.length,
         itemBuilder: (context, index, realIndex) {
@@ -25,11 +33,11 @@ class NewsCarouselSlider extends StatelessWidget {
           final isImage = listOfImages[index]['isImage'];
           return Card(
             color: !isImage ? Color(listOfNoticias['textColor']) : Colors.white,
-            margin: const EdgeInsets.symmetric(vertical: 2),
+            // margin: const EdgeInsets.symmetric(vertical: 1),
             elevation: 3,
             shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.all(
-                Radius.circular(10),
+                Radius.circular(30),
               ),
             ),
             child: Padding(
@@ -37,7 +45,7 @@ class NewsCarouselSlider extends StatelessWidget {
                   ? const EdgeInsets.all(0.0)
                   : const EdgeInsets.all(8.0),
               child: ClipRRect(
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(30),
                 child: SizedBox(
                   width: MediaQuery.of(context).size.width,
                   child: isImage

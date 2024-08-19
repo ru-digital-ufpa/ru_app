@@ -23,7 +23,7 @@ class SemCardapio extends StatelessWidget {
           shadowColor: kSecondaryColor,
           shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(
-              Radius.circular(20),
+              Radius.circular(30),
             ),
           ),
           child: Padding(
