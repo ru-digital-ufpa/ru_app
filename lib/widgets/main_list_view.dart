@@ -16,9 +16,8 @@ class MainListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final myDateFormat = DateFormat('dd-MM-yyyy');
-    final cardapio = Provider.of<Data>(context, listen: true).cardapioDeHoje;
-    final listOfNewsAndImages =
-        Provider.of<Data>(context, listen: true).listOfNews;
+    final cardapio = context.watch<Data>().cardapioDeHoje;
+    final listOfNewsAndImages = context.watch<Data>().listOfNews;
     final isNew = listOfNewsAndImages.isNotEmpty;
 
     return ListView(
@@ -58,11 +57,11 @@ class BuildNewCardapio extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final dataDeHoje = DateFormat('dd-MM-yyyy').format(DateTime.now());
-    final cardapio = Provider.of<Data>(context, listen: true).cardapioDeHoje;
+    final cardapio = context.watch<Data>().cardapioDeHoje;
 
     bool isTemCardapioDeHpje = dataDeHoje == cardapio[index]['data'].toString();
 
-    final int semFuncionamentoAlmoco = cardapio[index]['amoco'].length;
+    final int semFuncionamentoAlmoco = cardapio[index]['almoco'].length;
 
     final int semFuncionamentoJantar = cardapio[index]['jantar'].length;
 
@@ -74,53 +73,53 @@ class BuildNewCardapio extends StatelessWidget {
             : const RuDivider(name: 'Amanhã'),
         semFuncionamentoAlmoco > 2
             ? RuCard(
-                refeicao: Provider.of<Data>(context, listen: true)
-                    .cardapioDeHoje[index]['amoco']['refeicao'],
-                nomeDaRefi: Provider.of<Data>(context, listen: true)
-                    .cardapioDeHoje[index]['amoco']['nomeDaRefei'],
-                vegetariano: Provider.of<Data>(context, listen: true)
-                    .cardapioDeHoje[index]['amoco']['vegetariano1'],
-                comida1: Provider.of<Data>(context, listen: true)
-                    .cardapioDeHoje[index]['amoco']['ingredintes']['amo1'],
-                comida2: Provider.of<Data>(context, listen: true)
-                    .cardapioDeHoje[index]['amoco']['ingredintes']['amo2'],
-                comida3: Provider.of<Data>(context, listen: true)
-                    .cardapioDeHoje[index]['amoco']['ingredintes']['amo3'],
-                comida4: Provider.of<Data>(context, listen: true)
-                    .cardapioDeHoje[index]['amoco']['ingredintes']['amo4'],
-                comida5: Provider.of<Data>(context, listen: true)
-                    .cardapioDeHoje[index]['amoco']['ingredintes']['amo5'],
+                refeicao: context.watch<Data>().cardapioDeHoje[index]['almoco']
+                    ['refeicao'],
+                nomeDaRefi: context.watch<Data>().cardapioDeHoje[index]
+                    ['almoco']['nomeDaRefeicao'],
+                vegetariano: context.watch<Data>().cardapioDeHoje[index]
+                    ['almoco']['vegetarianoAlmoco'],
+                comida1: context.watch<Data>().cardapioDeHoje[index]['almoco']
+                    ['acompanhamento']['amo1'],
+                comida2: context.watch<Data>().cardapioDeHoje[index]['almoco']
+                    ['acompanhamento']['amo2'],
+                comida3: context.watch<Data>().cardapioDeHoje[index]['almoco']
+                    ['acompanhamento']['amo3'],
+                comida4: context.watch<Data>().cardapioDeHoje[index]['almoco']
+                    ['acompanhamento']['amo4'],
+                comida5: context.watch<Data>().cardapioDeHoje[index]['almoco']
+                    ['acompanhamento']['amo5'],
               )
             : SemCardapio(
-                refeicao: Provider.of<Data>(context, listen: true)
-                    .cardapioDeHoje[index]['amoco']['refeicao'],
-                nomeDaRefi: Provider.of<Data>(context, listen: true)
-                    .cardapioDeHoje[index]['amoco']['nomeDaRefei'],
+                refeicao: context.watch<Data>().cardapioDeHoje[index]['almoco']
+                    ['refeicao'],
+                nomeDaRefi: context.watch<Data>().cardapioDeHoje[index]
+                    ['almoco']['nomeDaRefeicao'],
               ),
         semFuncionamentoJantar > 2
             ? RuCard(
-                refeicao: Provider.of<Data>(context, listen: true)
-                    .cardapioDeHoje[index]['jantar']['refeicao'],
-                nomeDaRefi: Provider.of<Data>(context, listen: true)
-                    .cardapioDeHoje[index]['jantar']['nomeDaRefei'],
-                vegetariano: Provider.of<Data>(context, listen: true)
-                    .cardapioDeHoje[index]['jantar']['vegetariano2'],
-                comida1: Provider.of<Data>(context, listen: true)
-                    .cardapioDeHoje[index]['jantar']['ingredintes']['jan1'],
-                comida2: Provider.of<Data>(context, listen: true)
-                    .cardapioDeHoje[index]['jantar']['ingredintes']['jan2'],
-                comida3: Provider.of<Data>(context, listen: true)
-                    .cardapioDeHoje[index]['jantar']['ingredintes']['jan3'],
-                comida4: Provider.of<Data>(context, listen: true)
-                    .cardapioDeHoje[index]['jantar']['ingredintes']['jan4'],
-                comida5: Provider.of<Data>(context, listen: true)
-                    .cardapioDeHoje[index]['jantar']['ingredintes']['jan5'],
+                refeicao: context.watch<Data>().cardapioDeHoje[index]['jantar']
+                    ['refeicao'],
+                nomeDaRefi: context.watch<Data>().cardapioDeHoje[index]
+                    ['jantar']['nomeDaRefeicao'],
+                vegetariano: context.watch<Data>().cardapioDeHoje[index]
+                    ['jantar']['vegetarianoJantar'],
+                comida1: context.watch<Data>().cardapioDeHoje[index]['jantar']
+                    ['acompanhamento']['jan1'],
+                comida2: context.watch<Data>().cardapioDeHoje[index]['jantar']
+                    ['acompanhamento']['jan2'],
+                comida3: context.watch<Data>().cardapioDeHoje[index]['jantar']
+                    ['acompanhamento']['jan3'],
+                comida4: context.watch<Data>().cardapioDeHoje[index]['jantar']
+                    ['acompanhamento']['jan4'],
+                comida5: context.watch<Data>().cardapioDeHoje[index]['jantar']
+                    ['acompanhamento']['jan5'],
               )
             : SemCardapio(
-                refeicao: Provider.of<Data>(context, listen: true)
-                    .cardapioDeHoje[index]['jantar']['refeicao'],
-                nomeDaRefi: Provider.of<Data>(context, listen: true)
-                    .cardapioDeHoje[0]['jantar']['nomeDaRefei'],
+                refeicao: context.watch<Data>().cardapioDeHoje[index]['jantar']
+                    ['refeicao'],
+                nomeDaRefi: context.watch<Data>().cardapioDeHoje[0]['jantar']
+                    ['nomeDaRefeicao'],
               ),
       ],
     );
