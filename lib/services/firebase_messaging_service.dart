@@ -45,12 +45,12 @@ class FirebaseMessagingService {
         ?.createNotificationChannel(channel);
 
     if (settings.authorizationStatus == AuthorizationStatus.authorized) {
-      print("Usuário autorizou notificações");
+      // print("Usuário autorizou notificações");
     } else if (settings.authorizationStatus ==
         AuthorizationStatus.provisional) {
-      print("Usuário autorizou notificações provisórias");
+      // print("Usuário autorizou notificações provisórias");
     } else {
-      print("Usuário não autorizou notificações");
+      // print("Usuário não autorizou notificações");
     }
 
     getDeviceFirebaseToken();
