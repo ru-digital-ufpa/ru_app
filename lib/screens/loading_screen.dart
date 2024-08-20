@@ -55,9 +55,13 @@ class _LoadingScreenState extends State<LoadingScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Image.asset('images/ru_digital_logo.png'),
+            Image.asset(
+              'images/ru_digital_logo.png',
+              semanticLabel: 'RU digital app logo',
+            ),
             const CircularProgressIndicator(
               color: kSecondaryColor,
+              semanticsLabel: 'RU digital app loading',
             ),
           ],
         ),

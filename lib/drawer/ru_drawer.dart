@@ -38,6 +38,7 @@ class RuDrawer extends StatelessWidget {
                 ),
                 child: Text(
                   'RU DIGITAL',
+                  semanticsLabel: 'RU digital app name',
                   style: TextStyle(
                     color: kSecondaryColor,
                     fontSize: 24,
