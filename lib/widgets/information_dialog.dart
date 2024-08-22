@@ -17,6 +17,7 @@ class ShowInformationDialog extends StatelessWidget {
                 title: const Center(
                   child: Text(
                     'Horários',
+                    semanticsLabel: 'Horários',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                     ),
@@ -25,8 +26,14 @@ class ShowInformationDialog extends StatelessWidget {
                 content: const Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Text('Almoço: 11:00h ás 14:00h'),
-                    Text('Jantar: 17:45h ás 19:15h'),
+                    Text(
+                      'Almoço: 11:00h ás 14:00h',
+                      semanticsLabel: 'Almoço horário de funcionamento',
+                    ),
+                    Text(
+                      'Jantar: 17:45h ás 19:15h',
+                      semanticsLabel: 'Jantar horário de funcionamento',
+                    ),
                     SizedBox(
                       height: 5,
                     ),
@@ -37,6 +44,7 @@ class ShowInformationDialog extends StatelessWidget {
                     onPressed: () => Navigator.pop(context, 'Fechar'),
                     child: const Text(
                       'Fechar',
+                      semanticsLabel: 'Fechar',
                       style: TextStyle(fontSize: 16),
                     ),
                   ),
@@ -47,6 +55,7 @@ class ShowInformationDialog extends StatelessWidget {
       tooltip: 'informação do cardápio',
       child: const Icon(
         MyFlutterApp.info,
+        semanticLabel: 'informação do cardápio',
         size: 19,
         color: kSecondaryColor,
       ),

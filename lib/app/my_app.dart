@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:ru_app/data/ru_data.dart';
 
 import 'package:ru_app/screens/loading_screen.dart';
 import 'package:ru_app/screens/main_screen.dart';
@@ -47,19 +48,22 @@ class _MyAppState extends State<MyApp> {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData.light().copyWith(
-        primaryColor: kPrimaryColor,
+    return ChangeNotifierProvider(
+      create: (context) => Data(),
+      child: MaterialApp(
+        theme: ThemeData.light().copyWith(
+          primaryColor: kPrimaryColor,
+        ),
+        // color: kPrimaryColor,
+        initialRoute: LoadingScreen.id,
+        routes: {
+          LoadingScreen.id: (context) => const LoadingScreen(),
+          MainScreen.id: (context) => const MainScreen(),
+          TodoCardapioScreen.id: (context) => const TodoCardapioScreen(),
+          Prices.id: (context) => const Prices(),
+          HistoricoDoRu.id: (context) => const HistoricoDoRu(),
+        },
       ),
-      color: kPrimaryColor,
-      initialRoute: LoadingScreen.id,
-      routes: {
-        LoadingScreen.id: (context) => const LoadingScreen(),
-        MainScreen.id: (context) => const MainScreen(),
-        TodoCardapioScreen.id: (context) => const TodoCardapioScreen(),
-        Prices.id: (context) => const Prices(),
-        HistoricoDoRu.id: (context) => const HistoricoDoRu(),
-      },
     );
   }
 }

@@ -1,7 +1,7 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 // import 'package:flutter_native_timezone/flutter_native_timezone.dart';
-import 'package:timezone/timezone.dart' as tz;
+// import 'package:timezone/timezone.dart' as tz;
 // import 'package:timezone/data/latest_all.dart' as tz;
 
 class CustomNotification {
@@ -71,24 +71,24 @@ class NotificationService {
   //   }
   // }
 
-  showNotificationScheduled(
-      CustomNotification notification, Duration duration) {
-    final date = DateTime.now().add(duration);
+  // showNotificationScheduled(
+  //     CustomNotification notification, Duration duration) {
+  //   final date = DateTime.now().add(duration);
 
-    localNotificationsPlugin.zonedSchedule(
-      notification.id,
-      notification.title,
-      notification.body,
-      tz.TZDateTime.from(date, tz.local),
-      NotificationDetails(
-        android: androidDetails,
-      ),
-      payload: notification.payload,
-      androidAllowWhileIdle: true,
-      uiLocalNotificationDateInterpretation:
-          UILocalNotificationDateInterpretation.absoluteTime,
-    );
-  }
+  //   localNotificationsPlugin.zonedSchedule(
+  //     notification.id,
+  //     notification.title,
+  //     notification.body,
+  //     tz.TZDateTime.from(date, tz.local),
+  //     NotificationDetails(
+  //       android: androidDetails,
+  //     ),
+  //     payload: notification.payload,
+  //     androidAllowWhileIdle: true,
+  //     uiLocalNotificationDateInterpretation:
+  //         UILocalNotificationDateInterpretation.absoluteTime,
+  //   );
+  // }
 
   showLocalNotification(CustomNotification notification) {
     localNotificationsPlugin.show(

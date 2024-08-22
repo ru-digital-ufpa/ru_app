@@ -32,7 +32,7 @@ class NetworkHelper {
         // print(response.statusCode);
       }
     } catch (e) {
-      print(e);
+      // print(e);
       return cardapio;
     }
   }
@@ -83,7 +83,7 @@ class NetworkHelper {
         // print(response.statusCode);
       }
     } catch (e) {
-      print(e);
+      // print(e);
       return news;
     }
   }

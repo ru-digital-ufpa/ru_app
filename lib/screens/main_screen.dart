@@ -47,6 +47,7 @@ class _MainScreenState extends State<MainScreen> {
         ),
         title: const Text(
           'RU DIGITAL',
+          semanticsLabel: "RU digital app name",
           style: TextStyle(
             color: kSecondaryColor,
             fontSize: 20.0,
@@ -65,6 +66,7 @@ class _MainScreenState extends State<MainScreen> {
                 padding: const EdgeInsets.all(3.5),
                 child: Image.asset(
                   'images/ufpa_logo.png',
+                  semanticLabel: 'UFPA logo',
                   fit: BoxFit.fitWidth,
                 ),
               ),

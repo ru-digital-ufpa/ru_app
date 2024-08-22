@@ -18,18 +18,27 @@ class _LoadingScreenState extends State<LoadingScreen> {
   @override
   void initState() {
     super.initState();
-    _loadData();
+    _loadData(context);
   }
 
-  Future<void> _loadData() async {
+  Future<void> _loadData(BuildContext context) async {
     // final dataProvider = context.read<Data>();
 
-    final cardapio = await context.read<Data>().getCardapio();
+    await context.read<Data>().getCardapio();
+    navigateToMainScreen();
+  }
 
-    if (cardapio) {
-      context.read<Data>().getNewsFromServer();
-      Navigator.pushReplacementNamed(context, MainScreen.id);
-    }
+  /// Navigates to the [MainScreen] after the data is loaded.
+  ///
+  /// This method is called in the [initState] method of the [State] class.
+  /// It uses the [Navigator] to push a new route on the top of the navigator
+  /// that most tightly encloses the given [BuildContext].
+  ///
+  /// The [MainScreen] is pushed with the [MaterialPageRoute] which is the
+  /// default route type.
+  void navigateToMainScreen() {
+    context.read<Data>().getNewsFromServer();
+    Navigator.of(context).pushReplacementNamed(MainScreen.id);
   }
 
   @override
@@ -46,9 +55,13 @@ class _LoadingScreenState extends State<LoadingScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Image.asset('images/ru_digital_logo.png'),
+            Image.asset(
+              'images/ru_digital_logo.png',
+              semanticLabel: 'RU digital app logo',
+            ),
             const CircularProgressIndicator(
               color: kSecondaryColor,
+              semanticsLabel: 'RU digital app loading',
             ),
           ],
         ),

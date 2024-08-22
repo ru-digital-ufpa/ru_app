@@ -40,7 +40,7 @@ class RuCard extends StatelessWidget {
 
 class CardContainer extends StatelessWidget {
   const CardContainer({
-    Key? key,
+    super.key,
     required this.refeicao,
     required this.nomeDaRefi,
     required this.vegetariano,
@@ -49,7 +49,7 @@ class CardContainer extends StatelessWidget {
     required this.comida3,
     required this.comida4,
     required this.comida5,
-  }) : super(key: key);
+  });
 
   final String refeicao;
   final String nomeDaRefi;
