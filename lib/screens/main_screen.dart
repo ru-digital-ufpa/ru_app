@@ -7,6 +7,7 @@ import 'package:ru_app/drawer/ru_drawer.dart';
 import 'package:ru_app/widgets/ru_list_view.dart';
 import 'package:ru_app/data/ru_data.dart';
 import 'package:ru_app/widgets/information_dialog.dart';
+import 'package:ru_app/widgets/network_error.dart';
 
 class MainScreen extends StatefulWidget {
   static String id = 'main_screen';
@@ -17,16 +18,31 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
+  int _timeToUpdate = 10;
+
   @override
   void initState() {
     super.initState();
+    _isNetworkError();
+    _timeToUpdateCardapio();
+  }
+
+  void _isNetworkError() {
+    final isNetwork = context.read<Data>().isNetworkError;
+    if (isNetwork) {
+      _timeToUpdate = 1;
+    }
+  }
+
+  void _timeToUpdateCardapio() {
     Timer.periodic(
-      const Duration(minutes: 10),
+      Duration(minutes: _timeToUpdate),
       (timer) {
         context.read<Data>().onTimer();
         // Provider.of<FirebaseMessagingService>(context, listen: false)
         //     .getDeviceFirebaseToken();
         context.read<Data>().getNewsFromServer();
+        context.read<Data>().getCardapio();
       },
     );
   }
@@ -39,6 +55,7 @@ class _MainScreenState extends State<MainScreen> {
   List<dynamic> updateCardapioDoDia = [];
   @override
   Widget build(BuildContext context) {
+    final isNetwork = context.watch<Data>().isNetworkError;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: kPrimaryColor,
@@ -65,7 +82,7 @@ class _MainScreenState extends State<MainScreen> {
               child: Padding(
                 padding: const EdgeInsets.all(3.5),
                 child: Image.asset(
-                  'images/ufpa_logo.png',
+                  'assets/images/ufpa_logo.png',
                   semanticLabel: 'UFPA logo',
                   fit: BoxFit.fitWidth,
                 ),
@@ -74,8 +91,8 @@ class _MainScreenState extends State<MainScreen> {
           ),
         ],
       ),
-      body: const SafeArea(
-        child: RuListView(),
+      body: SafeArea(
+        child: isNetwork ? const NetworkError() : const RuListView(),
       ),
       floatingActionButton: const ShowInformationDialog(),
       drawer: const RuDrawer(),

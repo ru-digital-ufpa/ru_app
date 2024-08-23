@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ru_app/constants.dart';
 import 'package:ru_app/screens/historico_do_ru.dart';
 import 'package:ru_app/screens/prices.dart';
-import 'package:ru_app/screens/todo_cardapio_screen.dart';
+import 'package:ru_app/screens/get_all_menu_screen.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:ru_app/drawer/ru_drawer_list_tile.dart';
 

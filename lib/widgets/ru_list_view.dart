@@ -17,7 +17,7 @@ class RuListView extends StatelessWidget {
     final bool noUpdate = context.watch<Data>().noUpdate;
     final bool isSexta = context.watch<Data>().isSexta;
     final List<dynamic> cardapioDeHoje = context.watch<Data>().cardapioDeHoje;
-    final listOfNewsAndImages = context.read<Data>().listOfNews;
+    final listOfNewsAndImages = context.watch<Data>().listOfNews;
     bool isNews = listOfNewsAndImages.isNotEmpty;
 
     return RefreshIndicator(

@@ -8,6 +8,8 @@ class Data extends ChangeNotifier {
 
   List<dynamic> listOfNews = [];
 
+  bool isNetworkError = false;
+
   final String toDay = DateFormat('EEEE').format(DateTime.now());
   final dateNow = DateFormat('dd-MM-yyyy');
 
@@ -134,10 +136,20 @@ class Data extends ChangeNotifier {
     NetworkHelper networkHelper = NetworkHelper();
 
     // Retrieve the cardapio from the server using the NetworkHelper instance.
-    cardapio = await networkHelper.getData();
+    List<dynamic> newCardapio = await networkHelper.getData();
 
+    // Check if the cardapio is empty
+    if (newCardapio.isEmpty && cardapio.isNotEmpty) {
+      // If it is, set isNetworkError to true
+      isNetworkError = true;
+
+      changeCardapio(newCardapio);
+      notifyListeners();
+      return Future.value(true);
+    }
+    isNetworkError = false;
     // Update the cardapio in the Data class and notify listeners.
-    changeCardapio(cardapio);
+    changeCardapio(newCardapio);
 
     notifyListeners();
     // Return a Future that completes with a boolean value indicating success.

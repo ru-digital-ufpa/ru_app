@@ -7,7 +7,7 @@ import 'package:ru_app/data/ru_data.dart';
 import 'package:ru_app/screens/loading_screen.dart';
 import 'package:ru_app/screens/main_screen.dart';
 import 'package:ru_app/constants.dart';
-import 'package:ru_app/screens/todo_cardapio_screen.dart';
+import 'package:ru_app/screens/get_all_menu_screen.dart';
 import 'package:ru_app/services/firebase_messaging_service.dart';
 import 'package:ru_app/services/notification_service.dart';
 import 'package:ru_app/screens/historico_do_ru.dart';

@@ -21,6 +21,7 @@ class NetworkHelper {
     try {
       http.Response response = await http.get(
         url,
+        headers: {'Accept': 'application/json'},
       );
       // print(response.statusCode);
       if (response.statusCode == 200) {
@@ -29,6 +30,7 @@ class NetworkHelper {
         cardapio = json;
         return cardapio;
       } else {
+        return cardapio;
         // print(response.statusCode);
       }
     } catch (e) {

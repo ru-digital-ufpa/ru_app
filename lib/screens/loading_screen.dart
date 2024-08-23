@@ -25,6 +25,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
     // final dataProvider = context.read<Data>();
 
     await context.read<Data>().getCardapio();
+
     navigateToMainScreen();
   }
 
@@ -36,7 +37,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
   ///
   /// The [MainScreen] is pushed with the [MaterialPageRoute] which is the
   /// default route type.
-  void navigateToMainScreen() {
+  navigateToMainScreen() {
     context.read<Data>().getNewsFromServer();
     Navigator.of(context).pushReplacementNamed(MainScreen.id);
   }
@@ -56,7 +57,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Image.asset(
-              'images/ru_digital_logo.png',
+              'assets/images/ru_digital_logo.png',
               semanticLabel: 'RU digital app logo',
             ),
             const CircularProgressIndicator(
